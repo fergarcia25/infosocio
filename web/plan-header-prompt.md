@@ -1,0 +1,2 @@
+El header debe tener un estilo moderno en position: fixed; debe tener un background con blur y algo de opacidad. debe tener margin-top:0.25rem; border-radius: 30px; 
+Los links del menu deben tener font-weight: 600; font-size: 14px; margin: 0 10%;

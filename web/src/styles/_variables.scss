@@ -1,0 +1,20 @@
+// Colores
+$primary: #c62828;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+
+$custom-primary: #b71c1c;
+$custom-accent: #ff6f00;
+
+// Tipografía
+$font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// Layout
+$header-height: 80px;
+$footer-bg: #b71c1c;
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
