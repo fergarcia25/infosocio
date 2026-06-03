@@ -180,3 +180,21 @@ body {
     font-size: 0.8rem;
   }
 }
+
+// Report view print styles
+@media print {
+  .btn { display: none !important; }
+  .bg-light { background: white !important; }
+  .min-vh-100 { min-height: auto !important; }
+  body { background: white !important; }
+}
+
+// Report view table
+.table-sm th {
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.text-secondary {
+  opacity: 0.5;
+}

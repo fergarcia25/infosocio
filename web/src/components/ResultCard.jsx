@@ -1,27 +1,14 @@
-import avatarMasculino from '../assets/images/avatar-masculino.png'
-import avatarFemenino from '../assets/images/avatar-femenino.png'
-import avatarIndefinido from '../assets/images/avatar-indefinido.png'
-
-function avatarSrc(sexo) {
-  if (sexo === 'M') return avatarMasculino
-  if (sexo === 'F') return avatarFemenino
-  return avatarIndefinido
-}
-
 export default function ResultCard({ result, onSolicitar }) {
   const nombreCompleto = `${result.apellidos ? result.apellidos + ', ' : ''}${result.nombres || ''}`
 
   return (
     <div className="about-feat-card d-flex flex-column">
       <div className="d-flex align-items-start gap-3 mb-3">
-        <img
-          src={avatarSrc(result.sexo)}
-          alt=""
-          className="flex-shrink-0 object-fit-cover"
-          style={{ width: '50px', height: '50px', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-        />
+        <div className="about-feat-icon flex-shrink-0" style={{ marginBottom: 0 }}>
+          <i className="bi bi-person" />
+        </div>
         <div className="min-w-0">
-          <h3 className="fw-bold mb-1 text-gradient" style={{ fontSize: '1.05rem', wordBreak: 'break-word' }}>
+          <h3 className="fw-bold mb-1" style={{ fontSize: '1.05rem', wordBreak: 'break-word', color: '#1a1a1a' }}>
             {nombreCompleto || 'Sin nombre'}
           </h3>
           <p className="mb-0 text-muted small">

@@ -8,6 +8,7 @@ import ResultsPage from './pages/ResultsPage'
 import TyCPage from './pages/TyCPage'
 import PrivacidadPage from './pages/PrivacidadPage'
 import SolicitarPage from './pages/SolicitarPage'
+import CancelacionPage from './pages/CancelacionPage'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/solicitar" element={<SolicitarPage />} />
         <Route path="/terminos-y-condiciones" element={<TyCPage />} />
         <Route path="/politicas-de-privacidad" element={<PrivacidadPage />} />
+        <Route path="/cancelacion-datos" element={<CancelacionPage />} />
       </Route>
     </Routes>
   )

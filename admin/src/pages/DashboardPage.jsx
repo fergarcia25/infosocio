@@ -4,6 +4,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const monthNames = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
+function formatDia(dia) {
+  const d = new Date(dia + 'T00:00:00')
+  return `${d.getDate()} ${monthNames[d.getMonth()]}`
+}
+
 export default function DashboardPage() {
   const [stats, setStats] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -28,13 +33,10 @@ export default function DashboardPage() {
     { label: 'Ingresos', value: `$${parseFloat(stats.ingresos).toLocaleString('es-AR', { minimumFractionDigits: 2 })}`, color: '#0dcaf0', icon: 'bi-currency-dollar', link: '/solicitudes?pago_estado=aprobado' },
   ]
 
-  const chartData = (stats.mensual || []).map(item => {
-    const [year, month] = item.mes.split('-')
-    return {
-      mes: monthNames[parseInt(month) - 1] || item.mes,
-      solicitudes: parseInt(item.total),
-    }
-  })
+  const chartData = (stats.diario || []).map(item => ({
+    dia: formatDia(item.dia),
+    solicitudes: parseInt(item.total),
+  }))
 
   return (
     <div>
@@ -60,19 +62,19 @@ export default function DashboardPage() {
       </div>
       <div className="card shadow-sm">
         <div className="card-body">
-          <h5 className="fw-bold mb-3">Solicitudes por Mes</h5>
+          <h5 className="fw-bold mb-3">Solicitudes por Día</h5>
           {chartData.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="mes" />
-                <YAxis />
+                <XAxis dataKey="dia" />
+                <YAxis allowDecimals={false} />
                 <Tooltip />
                 <Bar dataKey="solicitudes" fill="#b71c1c" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           ) : (
-            <p className="text-muted text-center py-4">No hay datos de solicitudes por mes</p>
+            <p className="text-muted text-center py-4">No hay datos de solicitudes por día</p>
           )}
         </div>
       </div>

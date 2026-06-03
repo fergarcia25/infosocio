@@ -1,0 +1,409 @@
+{
+    "status": 200,
+    "result": {
+        "code": 200,
+        "info": "OK"
+    },
+    "data": {
+        "datosParticulares": {
+            "nombre": "EDMUNDO FERNANDO",
+            "apellido": "TOLOSA",
+            "apellidoNombre": "TOLOSA, EDMUNDO FERNANDO",
+            "cuil": 20043886089,
+            "dni": 4388608,
+            "tipo": "DNI-EA",
+            "nacionalidad": "ARGENTINA",
+            "anio": 1942,
+            "fechaNacimiento": "1942-03-16T03:00:00Z",
+            "fechaDeceso": "2023-10-04T03:00:00Z",
+            "edad": 82,
+            "sexo": "M",
+            "observaciones": {},
+            "mails": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "domicilio": "LA PAMPA 3654",
+            "localidad": "CIUDAD AUTONOMO DE BUENOS AIRES",
+            "provincia": "CAPITAL FEDERAL",
+            "cp": "1430",
+            "domAlternativos": {
+                "datos": [
+                    {
+                        "provinciaAlt": "CAPITAL FEDERAL",
+                        "cpAlt": "1430",
+                        "cuil": 20043886089,
+                        "localidadAlt": "CIUDAD DE BUENOS AIRES",
+                        "domicilioAlt": "LA PAMPA 3654"
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "scoreAgdEnabled": false,
+            "score": {},
+            "puntaje": {},
+            "verazEnabled": false,
+            "sujetoObligado": {
+                "estado": null,
+                "fechaCreacion": null,
+                "habilitado": null,
+                "mensaje": "Error al leer la respuesta",
+                "tipoSujeto": null
+            }
+        },
+        "datosLaborales": {
+            "datoLaboral": {
+                "datos": [
+                    {
+                        "relacionDependencia": {
+                            "estado": "Inactivo",
+                            "razonSocial": "FUNDACION UNIVERSIDAD DE MORON",
+                            "cuit": 30541395101,
+                            "alta": "2015-01-01T03:00:00Z",
+                            "baja": "2016-07-07T03:00:00Z",
+                            "sueldo": "A1",
+                            "cuil": 20043886089
+                        },
+                        "historialSueldo": {
+                            "infoAdicionalEmpleador": {
+                                "actividadempleador": "ENSEÑANZA INICIAL, JARDIN DE INFANTES Y PRIMARIA",
+                                "cantidadempleados": 2565,
+                                "domicilio": {
+                                    "direccion": "CABILDO 134",
+                                    "localidad": "MORON",
+                                    "provincia": "BUENOS AIRES",
+                                    "partido": "MORON",
+                                    "cp": 1708
+                                }
+                            },
+                            "tel": ""
+                        }
+                    },
+                    {
+                        "relacionDependencia": {
+                            "estado": "Inactivo",
+                            "razonSocial": "ASOCIACION CIVIL UNIVERSIDAD ARGENTINA JOHN F. KENNEDY",
+                            "cuit": 30520183295,
+                            "alta": "2015-01-01T03:00:00Z",
+                            "baja": "2016-04-11T03:00:00Z",
+                            "sueldo": "A1",
+                            "cuil": 20043886089
+                        },
+                        "historialSueldo": {
+                            "infoAdicionalEmpleador": {
+                                "actividadempleador": "SERVICIOS DE ASOCIACIONES N.C.P.",
+                                "cantidadempleados": 806,
+                                "domicilio": {
+                                    "direccion": "MITRE BARTOLOME 1411",
+                                    "localidad": "CAPITAL FEDERAL",
+                                    "provincia": "CAPITAL FEDERAL",
+                                    "partido": "CAPITAL FEDERAL",
+                                    "cp": 1037
+                                }
+                            },
+                            "tel": ""
+                        }
+                    }
+                ],
+                "cantTotal": 2
+            },
+            "monotributista": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "aportesAM": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "actividad": {
+                "datos": [
+                    {
+                        "cuil": 20043886089,
+                        "descripcion": "ENSEÑANZA PREPRIMARIA PRIMARIA SECUNDARIA SUPERIOR POR CORRESPONDENCIA ETC.",
+                        "ciiu": 931012
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "obraSocial": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "empDomesticos": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "domEmpleadores": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "jubilacion": {
+                "datos": [
+                    {
+                        "cuil": 20043886089,
+                        "cuilApo": 27270835452,
+                        "sueldoBruto": "408857",
+                        "sueldoNeto": "391089",
+                        "titular": "TOLOSA EDMUNDO FERNANDO",
+                        "apoderado": "BIGLIERI MARIA ROMINA",
+                        "periodo": "2024-08-01T03:00:00Z",
+                        "rango": "A1"
+                    }
+                ],
+                "cantTotal": 1
+            }
+        },
+        "vinculos": {
+            "vinculos": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "otrosVinculos": {
+                "datos": [],
+                "cantTotal": 0
+            }
+        },
+        "boletinOficial": {
+            "datos": [],
+            "cantTotal": 0
+        },
+        "telefonos": {
+            "datos": [
+                {
+                    "wsp": false,
+                    "dni": 4388608,
+                    "tipo": "Fijo",
+                    "nro": "45522922",
+                    "cuil": 20043886089,
+                    "operador": "TELECOM ARGENTINA S.A.",
+                    "tel": "01145522922",
+                    "localidad": "AMBA",
+                    "area": "011"
+                }
+            ],
+            "cantTotal": 1
+        },
+        "telefonosCelulares": {
+            "datos": [
+                {
+                    "wsp": false,
+                    "dni": 4388608,
+                    "tipo": "Celular",
+                    "nro": "45522922",
+                    "cuil": 20043886089,
+                    "operador": "TELECOM ARGENTINA S.A.",
+                    "tel": "01145522922",
+                    "localidad": "AMBA",
+                    "area": "011"
+                }
+            ],
+            "cantTotal": 1
+        },
+        "telefonosAdicionales": {
+            "datos": [],
+            "cantTotal": 0
+        },
+        "morosidad": {
+            "informacionBcra": {
+                "datos": [
+                    {
+                        "periodo": "2023-12-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 5000.0
+                    },
+                    {
+                        "periodo": "2023-11-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 43000.0
+                    },
+                    {
+                        "periodo": "2023-10-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 42000.0
+                    },
+                    {
+                        "periodo": "2023-09-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 68000.0
+                    },
+                    {
+                        "periodo": "2023-08-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 68000.0
+                    },
+                    {
+                        "periodo": "2023-07-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 52000.0
+                    },
+                    {
+                        "periodo": "2023-06-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 30000.0
+                    },
+                    {
+                        "periodo": "2023-05-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 17000.0
+                    },
+                    {
+                        "periodo": "2023-04-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 50000.0
+                    },
+                    {
+                        "periodo": "2023-03-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 59000.0
+                    },
+                    {
+                        "periodo": "2023-02-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 28000.0
+                    },
+                    {
+                        "periodo": "2023-01-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 39,
+                            "entidad": "BANCO MACRO S.A.",
+                            "codigoEnt": "00285",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 26000.0
+                    }
+                ],
+                "cantTotal": 12
+            },
+            "chequesRechazados": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "deudoresBancoCentral": {
+                "datos": [],
+                "cantTotal": 0
+            }
+        },
+        "bienesPersonales": {
+            "automotores": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "automotores_historial": {
+                "datos": [
+                    {
+                        "tramite": "1975-11-17T03:00:00Z",
+                        "dni": 4388608,
+                        "tipo": "SEDAN 4 PUERTAS",
+                        "cuil": 20043886089,
+                        "dominio": "UEN245",
+                        "compra": "1975-11-17T03:00:00Z",
+                        "anioModelo": 1975,
+                        "modelo": "RENAULT 12",
+                        "porcentaje": 100,
+                        "marca": "RENAULT",
+                        "origen": "Nacional"
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "autosembargos": {
+                "datos": [],
+                "cantTotal": 0
+            }
+        },
+        "participacionSocietaria": {
+            "datos": [],
+            "cantTotal": 0
+        },
+        "variables": {
+            "variableRechazo": [
+                "Edad",
+                "Dni",
+                "Fallecidos"
+            ],
+            "variableAprobada": [
+                "Laboral",
+                "Ultimo periodo BCRA",
+                "Histórico BCRA",
+                "Cheque rechazados",
+                "Historico morosidad",
+                "Cantidad de Consulta"
+            ]
+        },
+        "codigo": "R",
+        "idLog": 54098157,
+        "credito": {
+            "total": 825,
+            "consumido": 243,
+            "disponible": 582
+        }
+    },
+    "total_page": 0
+}

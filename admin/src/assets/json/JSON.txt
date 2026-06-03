@@ -1,0 +1,1026 @@
+{
+    "status": 200,
+    "result": {
+        "code": 200,
+        "info": "OK"
+    },
+    "data": {
+        "datosParticulares": {
+            "nombre": "ALAN FEDERICO",
+            "apellido": "ETCHEGONCELAY",
+            "apellidoNombre": "ETCHEGONCELAY, ALAN FEDERICO",
+            "cuil": 20325406128,
+            "dni": 32540612,
+            "tipo": "DNI-EA",
+            "nacionalidad": "ARGENTINA",
+            "anio": 1986,
+            "fechaNacimiento": "1986-11-03T03:00:00Z",
+            "fechaDeceso": {},
+            "edad": 37,
+            "sexo": "M",
+            "observaciones": {},
+            "mails": {
+                "datos": [
+                    {
+                        "dni": 32540612,
+                        "cuil": 20325406128,
+                        "email": "alanfederico@gmail.com",
+                        "origen": "1"
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "domicilio": "YAPEYU 1753",
+            "localidad": "CORDOBA",
+            "provincia": "CORDOBA",
+            "cp": "5000",
+            "domAlternativos": {
+                "datos": [
+                    {
+                        "provinciaAlt": "CORDOBA",
+                        "cpAlt": "5006",
+                        "cuil": 20325406128,
+                        "localidadAlt": "CORDOBA",
+                        "domicilioAlt": "YAPEYU 1753"
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "scoreAgdEnabled": true,
+            "score": 938.0,
+            "puntaje": 5.0,
+            "verazEnabled": false,
+            "sujetoObligado": {
+                "estado": null,
+                "fechaCreacion": null,
+                "habilitado": null,
+                "mensaje": "Error al leer la respuesta",
+                "tipoSujeto": null
+            }
+        },
+        "datosLaborales": {
+            "datoLaboral": {
+                "datos": [
+                    {
+                        "relacionDependencia": {
+                            "estado": "Activo",
+                            "razonSocial": "DATARG S.A.",
+                            "cuit": 30717683451,
+                            "alta": "2022-11-01T03:00:00Z",
+                            "baja": "2024-10-01T03:00:00Z",
+                            "sueldo": "A4",
+                            "cuil": 20325406128
+                        },
+                        "historialSueldo": {
+                            "infoAdicionalEmpleador": {
+                                "actividadempleador": null,
+                                "cantidadempleados": 0,
+                                "domicilio": {
+                                    "direccion": "JERONIMO LUIS DE CABRERA 1093",
+                                    "localidad": "BARRIO ALTA CORDOBA",
+                                    "provincia": "CORDOBA",
+                                    "partido": "CAPITAL",
+                                    "cp": 5001
+                                }
+                            },
+                            "tel": ""
+                        }
+                    },
+                    {
+                        "relacionDependencia": {
+                            "estado": "Inactivo",
+                            "razonSocial": "REDES Y COMUNICACIONES S.R.L.",
+                            "cuit": 30710591993,
+                            "alta": "2015-09-07T03:00:00Z",
+                            "baja": "2018-12-01T03:00:00Z",
+                            "sueldo": "A4",
+                            "cuil": 20325406128
+                        },
+                        "historialSueldo": {
+                            "infoAdicionalEmpleador": {
+                                "actividadempleador": "CONSTRUCCON, REFORMA Y REPARACON DE REDES DISTRIBUCON DE ELECTRICIDAD, GAS, AGUA, TELECOMUNICACIONES Y DE OTROS SERVICIOS PUBLICOS",
+                                "cantidadempleados": 63,
+                                "domicilio": {
+                                    "direccion": "PJE PUBLICO 6555",
+                                    "localidad": "LOS BOULEVARES",
+                                    "provincia": "CORDOBA",
+                                    "partido": "PUNILLA",
+                                    "cp": 5147
+                                }
+                            },
+                            "tel": ""
+                        }
+                    },
+                    {
+                        "relacionDependencia": {
+                            "estado": "Inactivo",
+                            "razonSocial": "TECTRADE S.R.L.",
+                            "cuit": 30710377053,
+                            "alta": "2015-03-10T03:00:00Z",
+                            "baja": "2015-09-08T03:00:00Z",
+                            "sueldo": "A1",
+                            "cuil": 20325406128
+                        },
+                        "historialSueldo": {
+                            "infoAdicionalEmpleador": {
+                                "actividadempleador": "VENTA AL POR MENOR DE DIARIOS Y REVISTAS",
+                                "cantidadempleados": 0,
+                                "domicilio": {
+                                    "direccion": "HUMBERTO PRIMO 420",
+                                    "localidad": "BARRIO CENTRO NORTE",
+                                    "provincia": "CORDOBA",
+                                    "partido": "CAPITAL",
+                                    "cp": 5000
+                                }
+                            },
+                            "tel": ""
+                        }
+                    },
+                    {
+                        "relacionDependencia": {
+                            "estado": "Inactivo",
+                            "razonSocial": "DIRECTV ARGENTINA SOCIEDAD ANONIMA",
+                            "cuit": 30685889397,
+                            "alta": "2015-09-07T03:00:00Z",
+                            "baja": "2015-09-07T03:00:00Z",
+                            "sueldo": "A1",
+                            "cuil": 20325406128
+                        },
+                        "historialSueldo": {
+                            "infoAdicionalEmpleador": {
+                                "actividadempleador": "EMISON Y RETRANSMISON DE RADIO",
+                                "cantidadempleados": 3100,
+                                "domicilio": {
+                                    "direccion": "CAPITAN JUSTO G. BERMUDEZ 4547 1",
+                                    "localidad": "MUNRO",
+                                    "provincia": "BUENOS AIRES",
+                                    "partido": "VICENTE LOPEZ",
+                                    "cp": 1605
+                                }
+                            },
+                            "tel": ""
+                        }
+                    }
+                ],
+                "cantTotal": 4
+            },
+            "monotributista": {
+                "datos": [
+                    {
+                        "tipo": "AUTONOMO",
+                        "categoria": "NI",
+                        "ganancias": "NI",
+                        "iva": "EX",
+                        "integrasociedades": "NO",
+                        "fechaInicio": "2017-06-24",
+                        "fechaHasta": "2022-10-01",
+                        "codigo": "00",
+                        "estado": "Inactivo"
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "aportesAM": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "actividad": {
+                "datos": [
+                    {
+                        "cuil": 20325406128,
+                        "descripcion": "SERVICIOS DE ASESORAMIENTO, DIRECCION Y GESTION EMPRESARIAL REALIZADOS POR INTEGRANTES DE CUERPOS DE DIRECCION EN SOCIEDADES EXCEPTO LAS ANONIMAS",
+                        "ciiu": 702092
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "obraSocial": {
+                "datos": [
+                    {
+                        "descripcion": "O.S. DE JEFES Y OFICIALES NAVALES DE RADIOCOMUNICACIONES",
+                        "codigo": "113205"
+                    }
+                ],
+                "cantTotal": 1
+            },
+            "empDomesticos": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "domEmpleadores": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "jubilacion": {
+                "datos": [],
+                "cantTotal": 0
+            }
+        },
+        "vinculos": {
+            "vinculos": {
+                "datos": [
+                    {
+                        "cuil": 20325406128,
+                        "cuilVinculo": 27543104294,
+                        "nombre": "ETCHEGONCELAY LARA AGUSTINA",
+                        "fechaNacimiento": "2015-02-01T03:00:00Z",
+                        "año": 2015,
+                        "relacion": "HIJO/A",
+                        "sexo": "F",
+                        "edad": 9
+                    },
+                    {
+                        "cuil": 20325406128,
+                        "cuilVinculo": 27308993693,
+                        "nombre": "CAMAÑO ELIANA EMILSE",
+                        "fechaNacimiento": "1984-03-12T03:00:00Z",
+                        "año": 1984,
+                        "relacion": "FAMILIAR",
+                        "sexo": "F",
+                        "edad": 40
+                    },
+                    {
+                        "cuil": 20325406128,
+                        "cuilVinculo": 27577391462,
+                        "nombre": "ETCHEGONCELAY EMMA AINHOA",
+                        "fechaNacimiento": "2019-05-27T03:00:00Z",
+                        "año": 2019,
+                        "relacion": "HIJO/A",
+                        "sexo": "F",
+                        "edad": 5
+                    }
+                ],
+                "cantTotal": 3
+            },
+            "otrosVinculos": {
+                "datos": [],
+                "cantTotal": 0
+            }
+        },
+        "boletinOficial": {
+            "datos": [],
+            "cantTotal": 0
+        },
+        "telefonos": {
+            "datos": [
+                {
+                    "wsp": false,
+                    "dni": 32540612,
+                    "tipo": "Fijo",
+                    "nro": "4572079",
+                    "cuil": 20325406128,
+                    "operador": "TELECOM ARGENTINA S.A.",
+                    "tel": "03514572079",
+                    "localidad": "TOLEDO",
+                    "area": "0351"
+                }
+            ],
+            "cantTotal": 1
+        },
+        "telefonosCelulares": {
+            "datos": [
+                {
+                    "wsp": true,
+                    "dni": 32540612,
+                    "tipo": "Celular",
+                    "nro": "7444400",
+                    "cuil": 20325406128,
+                    "operador": "TELECOM ARGENTINA S.A.",
+                    "tel": "03517444400",
+                    "localidad": "CORDOBA",
+                    "area": "0351"
+                },
+                {
+                    "wsp": false,
+                    "dni": 32540612,
+                    "tipo": "Celular",
+                    "nro": "3057583",
+                    "cuil": 20325406128,
+                    "operador": "AMX ARGENTINA S.A.",
+                    "tel": "03513057583",
+                    "localidad": "CORDOBA",
+                    "area": "0351"
+                }
+            ],
+            "cantTotal": 2
+        },
+        "telefonosAdicionales": {
+            "datos": [],
+            "cantTotal": 0
+        },
+        "morosidad": {
+            "informacionBcra": {
+                "datos": [
+                    {
+                        "periodo": "2024-08-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 969000.0
+                    },
+                    {
+                        "periodo": "2024-08-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 1832000.0
+                    },
+                    {
+                        "periodo": "2024-07-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 636000.0
+                    },
+                    {
+                        "periodo": "2024-07-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 839000.0
+                    },
+                    {
+                        "periodo": "2024-07-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 56000.0
+                    },
+                    {
+                        "periodo": "2024-06-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 200000.0
+                    },
+                    {
+                        "periodo": "2024-06-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 1453000.0
+                    },
+                    {
+                        "periodo": "2024-06-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 253000.0
+                    },
+                    {
+                        "periodo": "2024-05-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 1473000.0
+                    },
+                    {
+                        "periodo": "2024-05-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 848000.0
+                    },
+                    {
+                        "periodo": "2024-05-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 215000.0
+                    },
+                    {
+                        "periodo": "2024-04-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 1456000.0
+                    },
+                    {
+                        "periodo": "2024-04-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 510000.0
+                    },
+                    {
+                        "periodo": "2024-04-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 167000.0
+                    },
+                    {
+                        "periodo": "2024-03-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 5000.0
+                    },
+                    {
+                        "periodo": "2024-03-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 496000.0
+                    },
+                    {
+                        "periodo": "2024-02-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 163000.0
+                    },
+                    {
+                        "periodo": "2024-02-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 588000.0
+                    },
+                    {
+                        "periodo": "2024-01-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 1247000.0
+                    },
+                    {
+                        "periodo": "2024-01-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 1253000.0
+                    },
+                    {
+                        "periodo": "2024-01-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 160000.0
+                    },
+                    {
+                        "periodo": "2023-12-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 1637000.0
+                    },
+                    {
+                        "periodo": "2023-12-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 225000.0
+                    },
+                    {
+                        "periodo": "2023-12-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 423000.0
+                    },
+                    {
+                        "periodo": "2023-11-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 451000.0
+                    },
+                    {
+                        "periodo": "2023-11-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 1755000.0
+                    },
+                    {
+                        "periodo": "2023-11-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 252000.0
+                    },
+                    {
+                        "periodo": "2023-10-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 262000.0
+                    },
+                    {
+                        "periodo": "2023-10-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 3000.0
+                    },
+                    {
+                        "periodo": "2023-09-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 197000.0
+                    },
+                    {
+                        "periodo": "2023-09-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 70000.0
+                    },
+                    {
+                        "periodo": "2023-09-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 291000.0
+                    },
+                    {
+                        "periodo": "2023-08-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 114000.0
+                    },
+                    {
+                        "periodo": "2023-08-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 298000.0
+                    },
+                    {
+                        "periodo": "2023-08-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 325000.0
+                    },
+                    {
+                        "periodo": "2023-07-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 379000.0
+                    },
+                    {
+                        "periodo": "2023-07-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 33000.0
+                    },
+                    {
+                        "periodo": "2023-07-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 9,
+                            "entidad": "BANCO SUPERVIELLE S.A.",
+                            "codigoEnt": "00027",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 447000.0
+                    },
+                    {
+                        "periodo": "2023-06-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 309000.0
+                    },
+                    {
+                        "periodo": "2023-06-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 272000.0
+                    },
+                    {
+                        "periodo": "2023-05-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 259000.0
+                    },
+                    {
+                        "periodo": "2023-05-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 3000.0
+                    },
+                    {
+                        "periodo": "2023-04-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 429000.0
+                    },
+                    {
+                        "periodo": "2023-04-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 275000.0
+                    },
+                    {
+                        "periodo": "2023-03-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 225000.0
+                    },
+                    {
+                        "periodo": "2023-03-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 106000.0
+                    },
+                    {
+                        "periodo": "2023-02-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 276000.0
+                    },
+                    {
+                        "periodo": "2023-01-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 219000.0
+                    },
+                    {
+                        "periodo": "2023-01-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 332000.0
+                    },
+                    {
+                        "periodo": "2022-12-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 224000.0
+                    },
+                    {
+                        "periodo": "2022-12-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 330000.0
+                    },
+                    {
+                        "periodo": "2022-11-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 358000.0
+                    },
+                    {
+                        "periodo": "2022-11-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 459000.0
+                    },
+                    {
+                        "periodo": "2022-10-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 637,
+                            "entidad": "TARJETA NARANJA S.A.",
+                            "codigoEnt": "70408",
+                            "tipo": "Financieras"
+                        },
+                        "prestamo": 340000.0
+                    },
+                    {
+                        "periodo": "2022-10-01T03:00:00Z",
+                        "situacion": "01",
+                        "entidad": {
+                            "id": 1,
+                            "entidad": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
+                            "codigoEnt": "00007",
+                            "tipo": "Entidades Bancarias"
+                        },
+                        "prestamo": 51000.0
+                    }
+                ],
+                "cantTotal": 55
+            },
+            "chequesRechazados": {
+                "datos": [],
+                "cantTotal": 0
+            },
+            "deudoresBancoCentral": {
+                "datos": [],
+                "cantTotal": 0
+            }
+        },
+        "bienesPersonales": {
+            "automotores": {
+                "datos": [
+                    {
+                        "tramite": "2023-05-15T03:00:00Z",
+                        "dni": 32540612,
+                        "tipo": "SEDAN 5 PUERTAS",
+                        "cuil": 20325406128,
+                        "dominio": "NDW717",
+                        "compra": "2013-10-10T03:00:00Z",
+                        "anioModelo": 2013,
+                        "modelo": "118I",
+                        "porcentaje": 100,
+                        "marca": "BMW",
+                        "origen": "Importado"
+                    },
+                    {
+                        "tramite": "2009-07-07T03:00:00Z",
+                        "dni": 32540612,
+                        "tipo": "SEDAN 4 PUERTAS",
+                        "cuil": 20325406128,
+                        "dominio": "FEA468",
+                        "compra": "2005-09-20T03:00:00Z",
+                        "anioModelo": 2005,
+                        "modelo": "CLIO2 F2 RL DIE AA AUTENTIQUE",
+                        "porcentaje": 100,
+                        "marca": "RENAULT",
+                        "origen": "Nacional"
+                    }
+                ],
+                "cantTotal": 2
+            },
+            "automotores_historial": {
+                "datos": [
+                    {
+                        "tramite": "2013-01-15T03:00:00Z",
+                        "dni": 32540612,
+                        "tipo": "SEDAN 4 PUERTAS",
+                        "cuil": 20325406128,
+                        "dominio": "MCM489",
+                        "compra": "2013-01-15T03:00:00Z",
+                        "anioModelo": 2013,
+                        "modelo": "207 COMPACT ALLURE 1 4 N",
+                        "porcentaje": 100,
+                        "marca": "PEUGEOT",
+                        "origen": "Importado"
+                    },
+                    {
+                        "tramite": "2018-07-11T03:00:00Z",
+                        "dni": 32540612,
+                        "tipo": "SEDAN 5 PUERTAS",
+                        "cuil": 20325406128,
+                        "dominio": "OYS407",
+                        "compra": "2015-07-08T03:00:00Z",
+                        "anioModelo": 2015,
+                        "modelo": "208 ALLURE 1 5 N TOUCHSCREEN",
+                        "porcentaje": 100,
+                        "marca": "PEUGEOT",
+                        "origen": "Importado"
+                    }
+                ],
+                "cantTotal": 2
+            },
+            "autosembargos": {
+                "datos": [],
+                "cantTotal": 0
+            }
+        },
+        "participacionSocietaria": {
+            "datos": [],
+            "cantTotal": 0
+        },
+        "variables": {
+            "variableRechazo": [],
+            "variableAprobada": [
+                "Edad",
+                "Dni",
+                "Laboral",
+                "Fallecidos",
+                "Ultimo periodo BCRA",
+                "Histórico BCRA",
+                "Cheque rechazados",
+                "Historico morosidad",
+                "Cantidad de Consulta"
+            ]
+        },
+        "codigo": "A",
+        "idLog": 54060481,
+        "credito": {
+            "total": 825,
+            "consumido": 152,
+            "disponible": 673
+        }
+    },
+    "total_page": 0
+}

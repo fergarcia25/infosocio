@@ -18,6 +18,7 @@ export default function Footer() {
               <li className="mb-2"><Link to="/infosociotarget" className="text-white-50 text-decoration-none">InfoSocio Target</Link></li>
               <li className="mb-2"><Link to="/terminos-y-condiciones" className="text-white-50 text-decoration-none">Términos y Condiciones</Link></li>
               <li className="mb-2"><Link to="/politicas-de-privacidad" className="text-white-50 text-decoration-none">Políticas de Privacidad</Link></li>
+              <li className="mb-2"><Link to="/cancelacion-datos" className="text-white-50 text-decoration-none">Solicitar cancelación de mis datos</Link></li>
             </ul>
           </div>
           <div className="col-lg-4">

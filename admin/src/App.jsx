@@ -8,12 +8,14 @@ import RequestsPage from './pages/RequestsPage'
 import RequestDetailPage from './pages/RequestDetailPage'
 import PricePage from './pages/PricePage'
 import GenerateReportPage from './pages/GenerateReportPage'
+import ReportViewPage from './pages/ReportViewPage'
 
 export default function App() {
   return (
     <AuthProvider>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/generar-informe/report" element={<ReportViewPage />} />
         <Route element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/solicitudes" element={<RequestsPage />} />
