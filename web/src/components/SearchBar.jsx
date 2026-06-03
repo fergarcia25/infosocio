@@ -17,7 +17,9 @@ export default function SearchBar({ large = false }) {
       <div className="input-group input-group-lg">
         <input
           type="text"
-          className="form-control"
+          id="criterio"
+          name="criterio"
+          className="form-control inp_box"
           placeholder={large ? "Buscar por Nombre, DNI o CUIL..." : "Nombre, DNI o CUIL..."}
           value={query}
           onChange={(e) => setQuery(e.target.value)}

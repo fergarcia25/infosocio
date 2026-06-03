@@ -11,6 +11,14 @@ class PrecioController {
         return ['success' => true, 'data' => $precio];
     }
 
+    public function showPublic() {
+        $db = getDB();
+        $stmt = $db->query("SELECT monto FROM precio ORDER BY id DESC LIMIT 1");
+        $precio = $stmt->fetch();
+        $monto = $precio ? (float)$precio['monto'] : 15200;
+        return ['success' => true, 'monto' => $monto];
+    }
+
     public function update() {
         checkAuth();
         $input = json_decode(file_get_contents('php://input'), true);

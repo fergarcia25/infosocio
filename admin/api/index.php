@@ -14,6 +14,7 @@ require_once __DIR__ . '/controllers/AuthController.php';
 require_once __DIR__ . '/controllers/SolicitudesController.php';
 require_once __DIR__ . '/controllers/PrecioController.php';
 require_once __DIR__ . '/controllers/DashboardController.php';
+require_once __DIR__ . '/controllers/PaymentController.php';
 
 $action = $_GET['action'] ?? '';
 
@@ -72,6 +73,18 @@ try {
         case 'actualizar-precio':
             $ctrl = new PrecioController();
             echo json_encode($ctrl->update());
+            break;
+
+        // Public
+        case 'precio-publico':
+            $ctrl = new PrecioController();
+            echo json_encode($ctrl->showPublic());
+            break;
+
+        // Payments
+        case 'create-preference':
+            $ctrl = new PaymentController();
+            echo json_encode($ctrl->createPreference());
             break;
 
         // Dashboard

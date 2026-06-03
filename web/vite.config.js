@@ -8,7 +8,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/admin/api': {
-        target: 'http://localhost',
+        target: 'http://infosocio.test',
         changeOrigin: true,
       },
     },

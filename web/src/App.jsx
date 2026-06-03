@@ -18,9 +18,9 @@ export default function App() {
         <Route path="/infoboost" element={<InfoboostPage />} />
         <Route path="/servicios" element={<ServicesPage />} />
         <Route path="/resultados" element={<ResultsPage />} />
+        <Route path="/solicitar" element={<SolicitarPage />} />
         <Route path="/terminos-y-condiciones" element={<TyCPage />} />
         <Route path="/politicas-de-privacidad" element={<PrivacidadPage />} />
-        <Route path="/solicitar/:id" element={<SolicitarPage />} />
       </Route>
     </Routes>
   )
