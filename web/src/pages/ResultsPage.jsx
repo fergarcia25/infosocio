@@ -101,7 +101,7 @@ export default function ResultsPage() {
   return (
     <>
       {/* Title + Filters section — like about-transform-section */}
-      <section className="about-transform-section" style={{ paddingTop: 'calc(5rem + 80px)' }}>
+      <section className="about-transform-section" style={{ paddingTop: 'calc(3rem + 80px)', paddingBottom: '3rem' }}>
         <div className="container position-relative">
           <div className="row justify-content-center">
             <div className="col-lg-10 text-center">

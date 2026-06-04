@@ -9,21 +9,21 @@ async function fetchApi(url) {
 export async function searchPeople({ criterio, provincia = '', municipio = '', ciudad = '' }) {
   const params = new URLSearchParams({ criterio, provincia, municipio, ciudad })
 
-  const primary = await fetchApi(`/admin/api/buscar.php?${params}`).catch(() => null)
+  const primary = await fetchApi(`/admin/api/buscar-basic.php?criterio=${encodeURIComponent(criterio)}&${params}`).catch(() => null)
 
   if (primary && primary.success && primary.results && primary.results.length > 0) {
     return primary
   }
 
-  const fallback = await fetchApi(`/admin/api/buscar-basic.php?criterio=${encodeURIComponent(criterio)}`).catch(() => null)
+  // const fallback = await fetchApi(`/admin/api/buscar.php?${params}`).catch(() => null)
 
-  if (fallback && fallback.success) {
-    return fallback
-  }
+  // if (fallback && fallback.success) {
+  //   return fallback
+  // }
 
   if (primary && primary.success) {
     return primary
   }
 
-  throw new Error(primary?.message || fallback?.message || 'Error en la búsqueda')
+  throw new Error(primary?.message || 'Error en la búsqueda')
 }

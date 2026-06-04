@@ -2,56 +2,55 @@ export default function ResultCard({ result, onSolicitar }) {
   const nombreCompleto = `${result.apellidos ? result.apellidos + ', ' : ''}${result.nombres || ''}`
 
   return (
-    <div className="about-feat-card d-flex flex-column">
-      <div className="d-flex align-items-start gap-3 mb-3">
-        <div className="about-feat-icon flex-shrink-0" style={{ marginBottom: 0 }}>
-          <i className="bi bi-person" />
-        </div>
-        <div className="min-w-0">
-          <h3 className="fw-bold mb-1" style={{ fontSize: '1.05rem', wordBreak: 'break-word', color: '#1a1a1a' }}>
+    <div className="card h-100" style={{ border: '1px solid #e7e7e7', borderRadius: '10px', boxShadow: '0 1px 12px rgba(0,0,0,0.1)' }}>
+      <div className="card-body d-flex flex-column">
+        <div className="d-flex align-items-center gap-2 mb-3">
+          <i className="bi bi-person" style={{ color: '#b71c1c', fontSize: '1.1rem' }}></i>
+          <h5 className="fw-bold mb-0" style={{ fontSize: '1rem', wordBreak: 'break-word' }}>
             {nombreCompleto || 'Sin nombre'}
-          </h3>
-          <p className="mb-0 text-muted small">
-            {result.provincia || 'Sin provincia'}{result.ciudad ? `, ${result.ciudad}` : ''}
-          </p>
+          </h5>
+        </div>
+
+        <div style={{ borderRadius: '8px', padding: '0' }}>
+          <div className="row g-2">
+            <div className="col-6">
+              <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '6px 12px' }}>
+                <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>DNI</div>
+                <div className="fw-bold">{result.nrodni || '-'}</div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '6px 12px' }}>
+                <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>CUIT</div>
+                <div className="fw-bold">{result.cuit || '-'}</div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '6px 12px' }}>
+                <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Edad</div>
+                <div className="fw-bold">{result.edad != null ? `${result.edad} años` : '-'}</div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '6px 12px' }}>
+                <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Sexo</div>
+                <div className="fw-bold">{result.sexo === 'M' ? 'Masculino' : result.sexo === 'F' ? 'Femenino' : '-'}</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="text-center mt-3">
+          <button
+            onClick={() => onSolicitar(result)}
+            className="about-btn-primary"
+          >
+            <i className="bi bi-file-earmark-text me-1"></i>
+            Solicitar Informe
+          </button>
         </div>
       </div>
-
-      <div className="row g-2 mb-3">
-        <div className="col-sm-6">
-          <p className="mb-0 text-muted" style={{ fontSize: '0.85rem' }}>
-            <span className="fw-semibold" style={{ color: '#1a1a1a' }}>DNI</span><br />
-            {result.nrodni || '-'}
-          </p>
-        </div>
-        <div className="col-sm-6">
-          <p className="mb-0 text-muted" style={{ fontSize: '0.85rem' }}>
-            <span className="fw-semibold" style={{ color: '#1a1a1a' }}>CUIT</span><br />
-            {result.cuit || '-'}
-          </p>
-        </div>
-        <div className="col-sm-6">
-          <p className="mb-0 text-muted" style={{ fontSize: '0.85rem' }}>
-            <span className="fw-semibold" style={{ color: '#1a1a1a' }}>Edad</span><br />
-            {result.edad != null ? `${result.edad} años` : '-'}
-          </p>
-        </div>
-        <div className="col-sm-6">
-          <p className="mb-0 text-muted" style={{ fontSize: '0.85rem' }}>
-            <span className="fw-semibold" style={{ color: '#1a1a1a' }}>Sexo</span><br />
-            {result.sexo === 'M' ? 'Masculino' : result.sexo === 'F' ? 'Femenino' : '-'}
-          </p>
-        </div>
-      </div>
-
-      <button
-        onClick={() => onSolicitar(result)}
-        className="about-btn-primary mt-auto align-self-start"
-        style={{ border: 'none', cursor: 'pointer' }}
-      >
-        <i className="bi bi-file-earmark-text"></i>
-        Solicitar Informe
-      </button>
     </div>
   )
 }

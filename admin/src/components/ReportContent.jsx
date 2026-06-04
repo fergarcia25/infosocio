@@ -9,22 +9,37 @@ function v(val) {
   return String(val)
 }
 
+function formatDate(val) {
+  if (val == null || typeof val === 'boolean') return '-'
+  if (typeof val === 'object') return '-'
+  const s = String(val).replace('T', ' ').replace('Z', '')
+  if (!s.trim()) return '-'
+  const parts = s.split(' ')
+  const datePart = parts[0]
+  const timePart = parts[1]
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(datePart)) return s
+  const [y, m, d] = datePart.split('-')
+  return timePart ? `${d}-${m}-${y} | ${timePart}` : `${d}-${m}-${y}`
+}
+
+import ScoringChart from './ScoringChart.jsx'
+
 function Field({ label, value }) {
   return (
     <li>
-      <span>• {label}:</span>
+      <span className="text-muted small">• {label}:</span>
       {v(value)}
     </li>
   )
 }
 
-function Section({ icon, title, children }) {
+function Section({ icon, title, children, plain }) {
   return (
-    <div className="card mb-3">
+    <div className="card mb-3" style={plain ? { border: 'none', boxShadow: 'none' } : { border: '1px solid #e7e7e7', borderRadius: '10px', boxShadow: '0 1px 12px rgba(0,0,0,0.1)' }}>
       <div className="card-body">
-        <div className="d-flex align-items-center gap-2 mb-3">
-          <i className="bi bi-{icon}" style={{ fontSize: '1.25rem' }}></i>
-          <h5 className="mb-0 fw-bold">{title}</h5>
+        <div className="d-flex align-items-center gap-2">
+          <i className={`bi bi-${icon}`} style={{ color: '#b71c1c', fontSize: '1.1rem' }}></i>
+          <h5 className="fw-bold mb-0">{title}</h5>
         </div>
         {children}
       </div>
@@ -48,8 +63,32 @@ export default function ReportContent({ data, reportRef }) {
   const months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
 
   return (
-    <div ref={reportRef} className="bg-white" style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>
-      <div className="d-flex justify-content-between align-items-start mb-3">
+    <div ref={reportRef} className="bg-white report-container" style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem', fontFamily: 'Roboto, sans-serif' }}>
+      <style>{`
+        .report-container h1, .report-container h2, .report-container h3,
+        .report-container h4, .report-container h5, .report-container h6 {
+          font-family: "Raleway", sans-serif;
+          font-weight: 700;
+        }
+        .report-container .table {
+          border-collapse: separate;
+          border-spacing: 0;
+          border: 1px solid #e7e7e7;
+          border-radius: 8px;
+          background-color: #fafafa;
+          overflow: hidden;
+        }
+        .report-container .table th,
+        .report-container .table td {
+          padding: 6px 10px !important;
+          border-bottom: 1px solid #e7e7e7;
+        }
+        .report-container .table tr:last-child td,
+        .report-container .table tr:last-child th {
+          border-bottom: none;
+        }
+      `}</style>
+      <div className="d-flex justify-content-between align-items-start pb-2 mb-2 border-bottom">
         <h4 className="fw-bold mb-0">
           {v(dp.apellido)}, {v(dp.nombre)}
         </h4>
@@ -59,36 +98,88 @@ export default function ReportContent({ data, reportRef }) {
         </div>
       </div>
 
-      <Section icon="person" title="Datos Personales">
-        <ul className="list-unstyled row row-cols-2 mb-0">
-          <Field label="Nombre" value={dp.nombre} />
-          <Field label="Apellido" value={dp.apellido} />
-          <Field label="Cuit / Cuil" value={dp.cuil} />
-          <Field label="Versión DNI" value={dp.tipo} />
-          <Field label="N° DNI" value={dp.dni} />
-          <Field label="Nacionalidad" value={dp.nacionalidad} />
-          <Field label="Nacimiento" value={fmt(dp.fechaNacimiento, 0, 10)} />
-          <Field label="Defunción" value={fmt(dp.fechaDeceso, 0, 10)} />
-          <Field label="Edad" value={dp.edad} />
-          <Field label="Sexo" value={dp.sexo} />
-        </ul>
-      </Section>
-
-      {score != null && (
-        <Section icon="star" title="Scoring">
-          <p className="mb-0">Score: <strong>{v(score)}</strong> / 999</p>
-          <p className="text-muted small mb-0 mt-1">
-            Con una escala de 1 a 999, el scoring evalúa el nivel de riesgo de cumplimiento o morosidad de un perfil. Este valor está determinado directamente por la conducta de pago previa y el historial financiero registrado.
-          </p>
-        </Section>
-      )}
+      <div className="row g-3">
+        <div className="col-lg-6 col-12">
+          <Section icon="person" title="Datos Personales">
+            <div style={{ borderRadius: '8px', padding: '0' }}>
+              <div className="row g-2 mt-3">
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Nombre</div>
+                    <div className="fw-bold small">{v(dp.nombre)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Apellido</div>
+                    <div className="fw-bold small">{v(dp.apellido)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>CUIT / CUIL</div>
+                    <div className="fw-bold small">{v(dp.cuil)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>DNI</div>
+                    <div className="fw-bold small">{v(dp.dni)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Edad</div>
+                    <div className="fw-bold small">{v(dp.edad)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Sexo</div>
+                    <div className="fw-bold small">{v(dp.sexo)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Nacimiento</div>
+                    <div className="fw-bold small">{formatDate(dp.fechaNacimiento)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Defunción</div>
+                    <div className="fw-bold small">{formatDate(dp.fechaDeceso)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Nacionalidad</div>
+                    <div className="fw-bold small">{v(dp.nacionalidad)}</div>
+                  </div>
+                </div>
+                <div className="col-6">
+                  <div style={{ backgroundColor: '#f5f5f5', borderRadius: '6px', padding: '12px 12px' }}>
+                    <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Versión DNI</div>
+                    <div className="fw-bold small">{v(dp.tipo)}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Section>
+        </div>
+        {score != null && (
+          <div className="col-6 mb-0">
+            <ScoringChart score={parseInt(v(score))} />
+          </div>
+        )}
+      </div>
 
       <Section icon="house" title="Domicilio Particular">
         <div className="table-responsive">
           <p className="text-muted small mb-0 mt-1">
             Es la dirección declarada como la residencia principal o el hogar actual de la persona.
           </p>
-          <table className="table table-sm mb-0">
+          <table className="table table-sm mt-2 mb-0">
             <thead>
               <tr>
                 <th>Ubicación</th>
@@ -115,7 +206,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Representa una dirección secundaria, alternativa o histórica que quedó registrada en la base de datos (puede ser un domicilio anterior, laboral, o una propiedad declarada).
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Ubicación</th>
@@ -145,7 +236,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Son números de teléfono fijos vinculados al historial de la persona.
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Número de teléfono</th>
@@ -173,7 +264,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Registros de líneas móviles asociadas al perfil.
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Número de celular</th>
@@ -201,7 +292,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Muestra las direcciones de correo electrónico declaradas o vinculadas a la identidad fiscal del titular.
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Cuit</th>
@@ -229,7 +320,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Esta sección del informe detalla las relaciones familiares directas registradas para el titular, permitiendo reconstruir su grupo familiar primario
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Nombre</th>
@@ -245,7 +336,7 @@ export default function ReportContent({ data, reportRef }) {
                   <tr key={i}>
                     <td>{v(item.nombre)}</td>
                     <td>{v(item.cuilVinculo)}</td>
-                    <td>{fmt(item.fechaNacimiento, 0, 10)}</td>
+                    <td>{formatDate(item.fechaNacimiento)}</td>
                     <td>{v(item.relacion)}</td>
                     <td>{v(item.sexo)}</td>
                     <td>{v(item.edad)}</td>
@@ -263,10 +354,8 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
              Esta sección analiza la situación de empleo actual del titular y clasifica su remuneración estimada dentro de una escala de rangos salariales.
             </p>
-            <p className="text-muted small fst-italic mb-0 mt-1">
-               La clasificación de ingresos (escalas A1 a A8) mide la capacidad salarial mensual en base a los antecedentes laborales del perfil. Estos rangos reflejan el progreso y la jerarquía de los cargos ocupados en el mercado de trabajo. Mientras que las categorías más bajas (como A1) indican ingresos mínimos de referencia, los niveles superiores (hasta A8) señalan perfiles con trayectorias más consolidadas o puestos directivos de mayor remuneración.
-            </p>
-            <table className="table table-sm mb-0">
+            
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Estado</th>
@@ -286,6 +375,9 @@ export default function ReportContent({ data, reportRef }) {
                 ))}
               </tbody>
             </table>
+            <p className="text-muted small fst-italic mb-0 mt-2">
+               La clasificación de ingresos (escalas A1 a A8) mide la capacidad salarial mensual en base a los antecedentes laborales del perfil. Estos rangos reflejan el progreso y la jerarquía de los cargos ocupados en el mercado de trabajo. Mientras que las categorías más bajas (como A1) indican ingresos mínimos de referencia, los niveles superiores (hasta A8) señalan perfiles con trayectorias más consolidadas o puestos directivos de mayor remuneración.
+            </p>
           </div>
         </Section>
       )}
@@ -296,7 +388,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Representa los vehículos que el titular posee en la actualidad, con el porcentaje de titularidad sobre cada uno:
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Año</th>
@@ -332,7 +424,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Registra el historial de vehículos que el titular tuvo a su nombre en el pasado (ya transferidos o dados de baja). 
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Año</th>
@@ -368,7 +460,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Banco/Financiera</th>
@@ -390,7 +482,7 @@ export default function ReportContent({ data, reportRef }) {
                 {morosidad.informacionBcra.datos.map((item, i) => (
                   <tr key={i}>
                     <td>{v(item.entidad?.entidad)}</td>
-                    <td>{v(item.periodo)}</td>
+                    <td>{formatDate(item.periodo)}</td>
                     <td colSpan={11}>{v(item.prestamo)}</td>
                   </tr>
                 ))}
@@ -406,7 +498,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               El panel muestra el cumplimiento de los pagos mensuales obligatorios de la seguridad social:
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Periodo</th>
@@ -420,7 +512,7 @@ export default function ReportContent({ data, reportRef }) {
               <tbody>
                 {laboral.monotributista.datos.map((item, i) => (
                   <tr key={i}>
-                    <td>{v(item.fechaInicio)} - {v(item.fechaHasta)}</td>
+                    <td>{formatDate(item.fechaInicio)} - {formatDate(item.fechaHasta)}</td>
                     <td>{v(item.tipo)}</td>
                     <td>{v(item.categoria)}</td>
                     <td>{v(item.ganancias)}</td>
@@ -440,7 +532,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Código</th>
@@ -463,7 +555,7 @@ export default function ReportContent({ data, reportRef }) {
       {laboral.obraSocial?.datos?.length > 0 && (
         <Section icon="heart" title="Obra Social">
           <div className="table-responsive">
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Código</th>
@@ -486,7 +578,7 @@ export default function ReportContent({ data, reportRef }) {
       {laboral.jubilacion?.datos?.length > 0 && (
         <Section icon="clock-history" title="Jubilación">
           <div className="table-responsive">
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Titular</th>
@@ -520,7 +612,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
               Este apartado detalla la condición impositiva independiente del titular, su historial de aportes obligatorios y su participación activa en estructuras societarias comerciales.
             </p>
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Archivo</th>
@@ -541,10 +633,10 @@ export default function ReportContent({ data, reportRef }) {
                     <td>{v(item.cuil)}</td>
                     <td>{v(item.fuente)}</td>
                     <td>{v(item.boletin)}</td>
-                    <td>{v(item.fechaPublicacion)}</td>
+                    <td>{formatDate(item.fechaPublicacion)}</td>
                     <td>{v(item.nombre)}</td>
                     <td>{v(item.razonSocial)}</td>
-                    <td>{v(item.fechaConstitucion)}</td>
+                    <td>{formatDate(item.fechaConstitucion)}</td>
                     <td>{v(item.cargo)}</td>
                   </tr>
                 ))}
@@ -557,7 +649,7 @@ export default function ReportContent({ data, reportRef }) {
       {boletin.datos?.length > 0 && (
         <Section icon="megaphone" title="Menciones en Boletín Oficial">
           <div className="table-responsive">
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Fuente</th>
@@ -568,7 +660,7 @@ export default function ReportContent({ data, reportRef }) {
                 {boletin.datos.map((item, i) => (
                   <tr key={i}>
                     <td>{v(item.fuente)}</td>
-                    <td>{v(item.fecha)}</td>
+                    <td>{formatDate(item.fecha)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -580,7 +672,7 @@ export default function ReportContent({ data, reportRef }) {
       {morosidad.chequesRechazados?.datos?.length > 0 && (
         <Section icon="exclamation-triangle" title="Cheques rechazados">
           <div className="table-responsive">
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>N° de cheque</th>
@@ -597,8 +689,8 @@ export default function ReportContent({ data, reportRef }) {
                     <td>{v(item.nroCheque)}</td>
                     <td>{item.monto != null ? `$ ${v(item.monto)}` : '-'}</td>
                     <td>{v(item.causal)}</td>
-                    <td>{fmt(item.fechaRechazo, 0, 10)}</td>
-                    <td>{fmt(item.fechaLevantamiento, 0, 10)}</td>
+                    <td>{formatDate(item.fechaRechazo)}</td>
+                    <td>{formatDate(item.fechaLevantamiento)}</td>
                     <td>{v(item.multa)}</td>
                   </tr>
                 ))}
@@ -611,7 +703,7 @@ export default function ReportContent({ data, reportRef }) {
       {laboral.monotributista?.datos?.length > 0 && (
         <Section icon="briefcase" title="Aportes Monotributista / Autonomo">
           <div className="table-responsive">
-            <table className="table table-sm mb-0">
+            <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
                   <th>Año</th>
