@@ -15,7 +15,7 @@ export default function PrivacidadPage() {
         <hr className="mb-5" />
 
         {/* Términos y Condiciones */}
-        <h2 className="fw-bold mb-4" style={{ fontSize: '1.5rem', color: '#b71c1c' }}>TÉRMINOS Y CONDICIONES DE USO - INFOSOCIO.COM.AR</h2>
+        <h2 className="fw-bold mb-4" style={{ fontSize: '1.5rem', color: '#b71c1c' }}>TÉRMINOS Y CONDICIONES DE USO - INFOSOCIO.COM</h2>
 
         <p style={{ color: '#555', lineHeight: 1.8, marginBottom: '2rem' }}>
           Antes de empezar: El documento que vas a leer a continuación establece las reglas, condiciones y deslindes de responsabilidad para el uso de nuestro sitio web. Al navegar y utilizar este sitio, aceptás de manera expresa que INFOSOCIO actúa exclusivamente como un canal de intermediación comercial y facilitador de servicios provistos por empresas terceras, no poseyendo bases de datos crediticias o comerciales propias. Te recomendamos leer estas condiciones con detenimiento.
@@ -76,7 +76,7 @@ export default function PrivacidadPage() {
 
         <h5 className="fw-bold mt-3" style={{ color: '#1a1a1a' }}>3.3.</h5>
         <p style={{ color: '#555', lineHeight: 1.8 }}>
-          INFOSOCIO brindará al Usuario la información del proveedor tercero cuando sea requerida a través de <a href="mailto:administracion@infosocio.com.ar" style={{ color: '#b71c1c' }}>administracion@infosocio.com.ar</a> para que este pueda ejercer sus derechos ante quien corresponda legalmente.
+          INFOSOCIO brindará al Usuario la información del proveedor tercero cuando sea requerida a través de <a href="mailto:administracion@infosocio.com" style={{ color: '#b71c1c' }}>administracion@infosocio.com</a> para que este pueda ejercer sus derechos ante quien corresponda legalmente.
         </p>
 
         <hr className="my-5" />
@@ -111,7 +111,7 @@ export default function PrivacidadPage() {
 
         <h5 className="fw-bold mt-3" style={{ color: '#1a1a1a' }}>6.2.</h5>
         <p style={{ color: '#555', lineHeight: 1.8 }}>
-          Las solicitudes de revisión por errores visuales del archivo o fallas en la entrega deberán enviarse dentro de las 24 horas de realizada la compra a <a href="mailto:administracion@infosocio.com.ar" style={{ color: '#b71c1c' }}>administracion@infosocio.com.ar</a>. Al no ser INFOSOCIO el emisor original de los datos, cualquier reclamo por disconformidad en el contenido del informe será trasladado al proveedor tercero para su evaluación, sin que esto garantice un reembolso por parte de INFOSOCIO.
+          Las solicitudes de revisión por errores visuales del archivo o fallas en la entrega deberán enviarse dentro de las 24 horas de realizada la compra a <a href="mailto:administracion@infosocio.com" style={{ color: '#b71c1c' }}>administracion@infosocio.com</a>. Al no ser INFOSOCIO el emisor original de los datos, cualquier reclamo por disconformidad en el contenido del informe será trasladado al proveedor tercero para su evaluación, sin que esto garantice un reembolso por parte de INFOSOCIO.
         </p>
 
         <hr className="my-5" />
@@ -127,13 +127,13 @@ export default function PrivacidadPage() {
         <hr className="my-5" />
 
         {/* Políticas de Privacidad */}
-        <h2 className="fw-bold mb-4" style={{ fontSize: '1.5rem', color: '#b71c1c' }}>POLÍTICAS DE PRIVACIDAD - INFOSOCIO.COM.AR</h2>
+        <h2 className="fw-bold mb-4" style={{ fontSize: '1.5rem', color: '#b71c1c' }}>POLÍTICAS DE PRIVACIDAD - INFOSOCIO.COM</h2>
 
         <h3 className="fw-bold mt-4" style={{ fontSize: '1.2rem', color: '#1a1a1a' }}>1. Ámbito de Aplicación</h3>
 
         <h5 className="fw-bold mt-3" style={{ color: '#1a1a1a' }}>1.1.</h5>
         <p style={{ color: '#555', lineHeight: 1.8 }}>
-          La presente Política de Privacidad describe cómo INFOSOCIO trata la información técnica y de contacto que recolecta a través de su sitio web www.infosocio.com.ar, en concordancia con la Ley 25.326 de Protección de Datos Personales de Argentina.
+          La presente Política de Privacidad describe cómo INFOSOCIO trata la información técnica y de contacto que recolecta a través de su sitio web www.infosocio.com, en concordancia con la Ley 25.326 de Protección de Datos Personales de Argentina.
         </p>
 
         <hr className="my-5" />
@@ -161,7 +161,7 @@ export default function PrivacidadPage() {
         <ul style={{ color: '#555', lineHeight: 1.8, paddingLeft: '1.5rem' }}>
           <li>Gestionar el procesamiento del pedido ante el proveedor tercero.</li>
           <li>Enviar el informe digitalizado al correo electrónico del Usuario.</li>
-          <li>Responder a consultas de soporte técnico o reclamos administrativos a través de administracion@infosocio.com.ar.</li>
+          <li>Responder a consultas de soporte técnico o reclamos administrativos a través de administracion@infosocio.com.</li>
         </ul>
 
         <hr className="my-5" />

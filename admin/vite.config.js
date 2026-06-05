@@ -2,7 +2,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  // ===== PRODUCCIÓN =====
   base: '/admin/',
+  // ===== DESARROLLO LOCAL =====
+  // base: '/admin/',
   plugins: [
     react(),
     {

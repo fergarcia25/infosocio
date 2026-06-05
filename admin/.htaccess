@@ -1,24 +1,16 @@
 DirectoryIndex index.php index.html
 
-ErrorDocument 404 /admin/index.php
-
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Exclude API routes from rewriting
+    # API routes passthrough
     RewriteRule ^api/ - [L]
 
-    # Redirect direct access to index.html → dist/index.html
-    RewriteRule ^index\.html$ dist/index.html [L,R=302]
-
-    # Serve existing files/directories directly
+    # Servir archivos existentes
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule . - [L]
 
-    # Rewrite any non-dist path to dist/
-    RewriteRule ^((?!dist/).+)$ dist/$1 [L]
-
-    # SPA fallback: everything under dist/ → dist/index.html
-    RewriteRule ^dist/ dist/index.html [L]
+    # SPA fallback → admin index.php
+    RewriteRule ^(.*)$ index.php [L]
 </IfModule>

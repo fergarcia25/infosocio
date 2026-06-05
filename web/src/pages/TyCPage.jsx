@@ -81,7 +81,7 @@ export default function TyCPage() {
           Para acceder a ciertos servicios de la Plataforma, el Usuario deberá completar un proceso de registro proporcionando información veraz y actualizada. En general, el acceso al sitio web de INFOSOCIO es gratuito y no requiere registro previo. Sin embargo, para hacer uso de algunas funcionalidades, el usuario puede necesitar registrarse, creando una cuenta de usuario con un nombre de usuario y una contraseña de acceso para lo cual deberá someterse a un proceso de registro. Durante este proceso, el Usuario se compromete a proporcionar información precisa, veraz, y actualizada, según lo solicitado en los formularios correspondientes. INFOSOCIO se reserva el derecho de verificar la autenticidad de la información proporcionada y tomará medidas adecuadas en caso de detectar datos falsos o desactualizados.
         </p>
         <p style={{ color: '#555', lineHeight: 1.8 }}>
-          El Usuario es responsable de mantener la confidencialidad de su cuenta y de la información asociada a la misma, asumiendo la responsabilidad por todas las actividades que ocurran bajo su cuenta. En caso de detectar el uso no autorizado de la cuenta o cualquier otra vulneración de la seguridad, el Usuario se compromete a notificarlo de inmediato a <a href="mailto:administracion@infosocio.com.ar" style={{ color: '#b71c1c' }}>administracion@infosocio.com.ar</a>.
+          El Usuario es responsable de mantener la confidencialidad de su cuenta y de la información asociada a la misma, asumiendo la responsabilidad por todas las actividades que ocurran bajo su cuenta. En caso de detectar el uso no autorizado de la cuenta o cualquier otra vulneración de la seguridad, el Usuario se compromete a notificarlo de inmediato a <a href="mailto:administracion@infosocio.com" style={{ color: '#b71c1c' }}>administracion@infosocio.com</a>.
         </p>
 
         <h5 className="fw-bold mt-4" style={{ color: '#1a1a1a' }}>3.2.</h5>
@@ -108,7 +108,7 @@ export default function TyCPage() {
           Dichos derechos podrán ser ejercidos a través de los mecanismos proporcionados por INFOSOCIO, según lo establecido en la normativa vigente. Para ejercer cualquiera de estos derechos, el Usuario puede utilizar los mecanismos proporcionados por INFOSOCIO. INFOSOCIO se compromete a procesar estas solicitudes en un plazo de 5 (cinco) días hábiles y enviar al Usuario el Informe Comercial actualizado, rectificado o suprimido, según corresponda.
         </p>
         <p style={{ color: '#555', lineHeight: 1.8 }}>
-          Para obtener más información sobre cómo ejercer estos derechos, puede ponerse en contacto con nuestro equipo a través de <a href="mailto:administracion@infosocio.com.ar" style={{ color: '#b71c1c' }}>administracion@infosocio.com.ar</a>.
+          Para obtener más información sobre cómo ejercer estos derechos, puede ponerse en contacto con nuestro equipo a través de <a href="mailto:administracion@infosocio.com" style={{ color: '#b71c1c' }}>administracion@infosocio.com</a>.
         </p>
 
         <hr className="my-5" />
@@ -190,7 +190,7 @@ export default function TyCPage() {
           INFOSOCIO ofrece packs de informes que pueden visualizarse en la página principal. Según el pack abonado por cantidad de informes (100, 500, 1000) el usuario registrado recibirá en su cuenta los créditos (equivalentes a informes) para utilizarlos en el momento que lo desee. Los créditos no tienen vencimiento y en cuanto a su devolución se rigen por el párrafo anterior.
         </p>
         <p style={{ color: '#555', lineHeight: 1.8 }}>
-          Si desea iniciar un procedimiento de devolución comuníquese directamente a través de: <a href="mailto:administracion@infosocio.com.ar" style={{ color: '#b71c1c' }}>administracion@infosocio.com.ar</a>.
+          Si desea iniciar un procedimiento de devolución comuníquese directamente a través de: <a href="mailto:administracion@infosocio.com" style={{ color: '#b71c1c' }}>administracion@infosocio.com</a>.
         </p>
 
         <hr className="my-5" />

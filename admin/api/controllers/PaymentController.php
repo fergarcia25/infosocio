@@ -33,14 +33,17 @@ class PaymentController {
         $base_url = $protocolo . '://' . $host;
 
         $es_local = in_array($host, ['localhost', '127.0.0.1']) || $protocolo === 'http';
+
+        // ===== PRODUCCIÓN =====
+        $url_success = $base_url . '/exito.php';
+        $url_failure = $base_url . '/fallo.php';
+        $url_pending = $base_url . '/pendiente.php';
+
+        // ===== DESARROLLO LOCAL =====
         if ($es_local) {
             $url_success = 'https://www.google.com/?q=exito';
             $url_failure = 'https://www.google.com/?q=fallo';
             $url_pending = 'https://www.google.com/?q=pendiente';
-        } else {
-            $url_success = $base_url . '/web/exito.php';
-            $url_failure = $base_url . '/web/fallo.php';
-            $url_pending = $base_url . '/web/pendiente.php';
         }
 
         $data = [
