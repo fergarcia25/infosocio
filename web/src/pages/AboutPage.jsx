@@ -1,4 +1,43 @@
+import { useState } from 'react'
+
 export default function AboutPage() {
+  const [contact, setContact] = useState({
+    nombre: '', apellido: '', email: '', localidad: '', dni: '', telefono: '', actividad: '', mensaje: ''
+  })
+  const [sending, setSending] = useState(false)
+  const [sent, setSent] = useState(false)
+
+  const handleContactChange = (e) => {
+    setContact({ ...contact, [e.target.name]: e.target.value })
+  }
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault()
+    setSending(true)
+    try {
+      await fetch('/admin/api/index.php?action=send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form: 'Contacto - InfoTarget',
+          data: {
+            'Nombre': contact.nombre,
+            'Apellido': contact.apellido,
+            'Email': contact.email,
+            'Localidad': contact.localidad,
+            'DNI': contact.dni,
+            'Teléfono': contact.telefono,
+            'Actividad': contact.actividad,
+            'Mensaje': contact.mensaje
+          }
+        })
+      })
+    } finally {
+      setSending(false)
+      setSent(true)
+    }
+  }
+
   return (
     <>
       {/* Hero */}
@@ -7,7 +46,7 @@ export default function AboutPage() {
         <div className="container position-relative" style={{ zIndex: 1 }}>
           <div className="row align-items-center min-vh-80">
             <div className="col-lg-7">
-              <span className="about-tag">Infosocio Target</span>
+              <span className="about-tag">InfoTarget</span>
               <h1 className="about-hero-title">
                 <span className="title-line">Encontrá a tus próximos clientes con</span><br />
                 <span className="title-line text-gradient">Inteligencia de la Información</span>
@@ -17,7 +56,7 @@ export default function AboutPage() {
               </p>
               <div className="d-flex flex-wrap gap-3 mt-4">
                 <a href="#contacto" className="about-btn-primary">Solicitar información</a>
-                <a href="#funcionalidades" className="about-btn-outline">Ver funcionalidades</a>
+                <a href="#que-es" className="about-btn-outline">¿Qué es InfoTarget?</a>
               </div>
             </div>
             <div className="col-lg-5 d-none d-lg-block">
@@ -40,12 +79,12 @@ export default function AboutPage() {
       </section>
 
       {/* What is */}
-      <section className="about-section">
+      <section id="que-es" className="about-section">
         <div className="container">
           <div className="row g-5 align-items-center">
             <div className="col-lg-5">
               <div className="about-label">¿QUÉ ES?</div>
-              <h2 className="about-title">Infosocio Target</h2>
+              <h2 className="about-title">InfoTarget</h2>
               <p className="about-text">
                 Es nuestra solución de inteligencia comercial y segmentación avanzada. Mediante tecnología Big Data, analizamos millones de señales digitales y demográficas para construir bases de datos de potenciales clientes altamente calificados, optimizando tu presupuesto de marketing y el tiempo de tus vendedores.
               </p>
@@ -197,30 +236,32 @@ export default function AboutPage() {
       {/* Benefits */}
       <section className="about-benefits-section">
         <div className="container">
-          <div className="text-center mb-5">
-            <span className="about-label" style={{ color: '#b71c1c' }}>BENEFICIOS</span>
-            <h2 className="about-title" style={{ color: '#fff' }}>Para equipos de Marketing y Ventas</h2>
-          </div>
-          <div className="about-benefits-grid">
-            <div className="about-benefit-card">
-              <i className="bi bi-bullseye" />
-              <h4>Decisiones Estratégicas</h4>
-              <p>Mejorá el ROI con información precisa y accionable.</p>
+          <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className="text-center mb-5">
+              <span className="about-label" style={{ color: '#b71c1c' }}>BENEFICIOS</span>
+              <h2 className="about-title" style={{ color: '#fff' }}>Para equipos de Marketing y Ventas</h2>
             </div>
-            <div className="about-benefit-card">
-              <i className="bi bi-lightning-charge" />
-              <h4>Eficiencia Operativa</h4>
-              <p>Reducí tiempo en análisis de mercado con datos listos para usar.</p>
-            </div>
-            <div className="about-benefit-card">
-              <i className="bi bi-search" />
-              <h4>Segmentación Precisa</h4>
-              <p>Identificá oportunidades de negocio donde antes no veías.</p>
-            </div>
-            <div className="about-benefit-card">
-              <i className="bi bi-graph-up" />
-              <h4>Resultados Medibles</h4>
-              <p>Tracking y métricas claras del rendimiento de tus campañas.</p>
+            <div className="about-benefits-grid">
+              <div className="about-benefit-card">
+                <i className="bi bi-bullseye" />
+                <h4>Decisiones Estratégicas</h4>
+                <p>Mejorá el ROI con información precisa y accionable.</p>
+              </div>
+              <div className="about-benefit-card">
+                <i className="bi bi-lightning-charge" />
+                <h4>Eficiencia Operativa</h4>
+                <p>Reducí tiempo en análisis de mercado con datos listos para usar.</p>
+              </div>
+              <div className="about-benefit-card">
+                <i className="bi bi-search" />
+                <h4>Segmentación Precisa</h4>
+                <p>Identificá oportunidades de negocio donde antes no veías.</p>
+              </div>
+              <div className="about-benefit-card">
+                <i className="bi bi-graph-up" />
+                <h4>Resultados Medibles</h4>
+                <p>Tracking y métricas claras del rendimiento de tus campañas.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -286,37 +327,47 @@ export default function AboutPage() {
                 <h2 className="about-title">Contáctanos</h2>
                 <p className="about-text">Completá el formulario y te responderemos a la brevedad</p>
               </div>
-              <form className="about-form">
+              {sent ? (
+                <div className="text-center" style={{ padding: '3rem 0' }}>
+                  <div style={{ width: 72, height: 72, borderRadius: '50%', background: '#e8f5e9', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                    <i className="bi bi-check-lg" style={{ fontSize: '2rem', color: '#2e7d32' }} />
+                  </div>
+                  <h2 className="about-title">Mensaje enviado</h2>
+                  <p className="about-text">Gracias por contactarnos. Te responderemos a la brevedad.</p>
+                </div>
+              ) : (
+              <form className="about-form" onSubmit={handleContactSubmit}>
                 <div className="row g-3">
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="Nombre" />
+                    <input type="text" name="nombre" className="about-input" placeholder="Nombre" value={contact.nombre} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="Apellido" />
+                    <input type="text" name="apellido" className="about-input" placeholder="Apellido" value={contact.apellido} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="email" className="about-input" placeholder="Email" />
+                    <input type="email" name="email" className="about-input" placeholder="Email" value={contact.email} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="Localidad" />
+                    <input type="text" name="localidad" className="about-input" placeholder="Localidad" value={contact.localidad} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="DNI" />
+                    <input type="text" name="dni" className="about-input" placeholder="DNI" value={contact.dni} onChange={handleContactChange} />
                   </div>
                   <div className="col-sm-6">
-                    <input type="tel" className="about-input" placeholder="Teléfono" />
+                    <input type="tel" name="telefono" className="about-input" placeholder="Teléfono" value={contact.telefono} onChange={handleContactChange} />
                   </div>
                   <div className="col-12">
-                    <input type="text" className="about-input" placeholder="Actividad / Ocupación / Profesión" />
+                    <input type="text" name="actividad" className="about-input" placeholder="Actividad / Ocupación / Profesión" value={contact.actividad} onChange={handleContactChange} />
                   </div>
                   <div className="col-12">
-                    <textarea className="about-input about-textarea" rows={4} placeholder="Mensaje" />
+                    <textarea name="mensaje" className="about-input about-textarea" rows={4} placeholder="Mensaje" value={contact.mensaje} onChange={handleContactChange} />
                   </div>
                   <div className="col-12 text-center">
-                    <button type="submit" className="about-btn-primary">Enviar mensaje</button>
+                    <button type="submit" className="about-btn-primary" disabled={sending}>{sending ? 'Enviando...' : 'Enviar mensaje'}</button>
                   </div>
                 </div>
               </form>
+              )}
             </div>
           </div>
         </div>

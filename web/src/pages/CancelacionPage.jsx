@@ -2,15 +2,35 @@ import { useState } from 'react'
 
 export default function CancelacionPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
   const [form, setForm] = useState({ nombre: '', apellido: '', dni: '', cuil: '', email: '' })
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSending(true)
+    try {
+      await fetch('/admin/api/index.php?action=send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form: 'Cancelación de Datos',
+          data: {
+            'Nombre': form.nombre,
+            'Apellido': form.apellido,
+            'DNI': form.dni,
+            'CUIL': form.cuil,
+            'Email': form.email
+          }
+        })
+      })
+    } finally {
+      setSending(false)
+      setSubmitted(true)
+    }
   }
 
   return (
@@ -106,8 +126,8 @@ export default function CancelacionPage() {
                       />
                     </div>
                     <div className="col-12 text-center">
-                      <button type="submit" className="about-btn-primary">
-                        Enviar Solicitud
+                      <button type="submit" className="about-btn-primary" disabled={sending}>
+                        {sending ? 'Enviando...' : 'Enviar Solicitud'}
                       </button>
                     </div>
                   </div>

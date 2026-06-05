@@ -26,6 +26,7 @@ export default function SearchBar({ large = false }) {
           id="criterio"
           name="criterio"
           className="form-control inp_box"
+          style={{ fontSize: '1rem' }}
           placeholder={large ? "Buscar por Nombre, DNI o CUIL..." : "Nombre, DNI o CUIL..."}
           value={query}
           onChange={(e) => setQuery(e.target.value)}

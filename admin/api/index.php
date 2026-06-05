@@ -15,6 +15,7 @@ require_once __DIR__ . '/controllers/SolicitudesController.php';
 require_once __DIR__ . '/controllers/PrecioController.php';
 require_once __DIR__ . '/controllers/DashboardController.php';
 require_once __DIR__ . '/controllers/PaymentController.php';
+require_once __DIR__ . '/controllers/EmailController.php';
 
 $action = $_GET['action'] ?? '';
 
@@ -85,6 +86,12 @@ try {
         case 'create-preference':
             $ctrl = new PaymentController();
             echo json_encode($ctrl->createPreference());
+            break;
+
+        // Email
+        case 'send-email':
+            $ctrl = new EmailController();
+            echo json_encode($ctrl->send());
             break;
 
         // Dashboard

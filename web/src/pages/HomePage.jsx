@@ -140,7 +140,7 @@ export default function HomePage() {
                 Con años de experiencia en el rubro, garantizamos datos precisos y actualizados
                 para que puedas tomar las mejores decisiones.
               </p>
-              <Link to="/infosociotarget" className="about-btn-primary mt-3 d-inline-flex">Conocé más</Link>
+              <a href="#beneficios" className="about-btn-primary mt-3 d-inline-flex">Conocé más</a>
             </div>
             <div className="col-lg-6">
               <div className="home-about-card">
@@ -149,32 +149,32 @@ export default function HomePage() {
                   <span>Descubrí todo lo que hacemos</span>
                 </div>
                 <div className="home-about-list">
-                  <Link to="/infosociotarget#funcionalidades" className="home-about-item">
+                  <Link to="/infotarget#funcionalidades" className="home-about-item">
                     <i className="bi bi-bullseye"></i>
-                    <span>Infosocio Target</span>
+                    <span>InfoTarget</span>
                     <i className="bi bi-chevron-right"></i>
                   </Link>
-                  <Link to="/infosociotarget" className="home-about-item">
+                  <Link to="/infotarget" className="home-about-item">
                     <i className="bi bi-arrow-repeat"></i>
                     <span>Transformamos datos complejos en decisiones estratégicas</span>
                     <i className="bi bi-chevron-right"></i>
                   </Link>
-                  <Link to="/infosociotarget#funcionalidades" className="home-about-item">
+                  <Link to="/infotarget#funcionalidades" className="home-about-item">
                     <i className="bi bi-grid-3x3-gap"></i>
                     <span>Todo lo que necesitás para encontrar a tus clientes</span>
                     <i className="bi bi-chevron-right"></i>
                   </Link>
-                  <Link to="/infosociotarget" className="home-about-item">
+                  <Link to="/infotarget" className="home-about-item">
                     <i className="bi bi-people"></i>
                     <span>Para equipos de Marketing y Ventas</span>
                     <i className="bi bi-chevron-right"></i>
                   </Link>
-                  <Link to="/infosociotarget" className="home-about-item">
+                  <Link to="/infotarget" className="home-about-item">
                     <i className="bi bi-signpost-2"></i>
                     <span>El camino hacia tu base de datos ideal</span>
                     <i className="bi bi-chevron-right"></i>
                   </Link>
-                  <Link to="/infosociotarget" className="home-about-item">
+                  <Link to="/infotarget" className="home-about-item">
                     <i className="bi bi-rocket-takeoff"></i>
                     <span>Impulsá el rendimiento de tu negocio hoy mismo</span>
                     <i className="bi bi-chevron-right"></i>
@@ -187,20 +187,22 @@ export default function HomePage() {
       </section>
 
       {/* Services section */}
-      <section className="about-benefits-section">
+      <section id="beneficios" className="about-benefits-section">
         <div className="container">
-          <div className="text-center mb-5">
-            <h2 className="about-title" style={{ color: '#fff' }}>¿Que contiene el informe?</h2>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' }}>En el informe podrás conocer la siguiente información de la persona.</p>
-          </div>
-          <div className="about-benefits-grid">
-            {plans.map((plan) => (
-              <div key={plan.id} className="about-benefit-card">
-                <i className={`bi ${plan.icon}`} />
-                <h4>{plan.title}</h4>
-                <p>{plan.description}</p>
-              </div>
-            ))}
+          <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className="text-center mb-5">
+              <h2 className="about-title" style={{ color: '#fff' }}>¿Que contiene el informe?</h2>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' }}>En el informe podrás conocer la siguiente información de la persona.</p>
+            </div>
+            <div className="about-benefits-grid">
+              {plans.map((plan) => (
+                <div key={plan.id} className="about-benefit-card">
+                  <i className={`bi ${plan.icon}`} />
+                  <h4>{plan.title}</h4>
+                  <p>{plan.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -227,11 +229,11 @@ export default function HomePage() {
             </div>
             <div className="col-md-6 col-lg-5">
               <div className="about-feat-card">
-                <h3 className="fw-bold text-gradient">Infosocio Target</h3>
+                <h3 className="fw-bold text-gradient">InfoTarget</h3>
                 <p style={{ marginBottom: '1.5rem' }}>
                   Mediante tecnología Big Data analizamos millones de señales digitales para construir bases de datos de potenciales clientes altamente calificados.
                 </p>
-                <Link to="/infosociotarget" className="about-btn-primary">Ver Infosocio Target</Link>
+                <Link to="/infotarget" className="about-btn-primary">Ver InfoTarget</Link>
               </div>
             </div>
           </div>

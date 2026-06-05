@@ -1,4 +1,43 @@
+import { useState } from 'react'
+
 export default function InfoboostPage() {
+  const [contact, setContact] = useState({
+    nombre: '', apellido: '', email: '', localidad: '', dni: '', telefono: '', actividad: '', mensaje: ''
+  })
+  const [sending, setSending] = useState(false)
+  const [sent, setSent] = useState(false)
+
+  const handleContactChange = (e) => {
+    setContact({ ...contact, [e.target.name]: e.target.value })
+  }
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault()
+    setSending(true)
+    try {
+      await fetch('/admin/api/index.php?action=send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form: 'Contacto - InfoBoost',
+          data: {
+            'Nombre': contact.nombre,
+            'Apellido': contact.apellido,
+            'Email': contact.email,
+            'Localidad': contact.localidad,
+            'DNI': contact.dni,
+            'Teléfono': contact.telefono,
+            'Actividad': contact.actividad,
+            'Mensaje': contact.mensaje
+          }
+        })
+      })
+    } finally {
+      setSending(false)
+      setSent(true)
+    }
+  }
+
   return (
     <>
       {/* Hero */}
@@ -17,7 +56,7 @@ export default function InfoboostPage() {
               </p>
               <div className="d-flex flex-wrap gap-3 mt-4">
                 <a href="#contacto" className="about-btn-primary">Solicitar información</a>
-                <a href="#info" className="about-btn-outline">Ver información</a>
+                <a href="#que-es" className="about-btn-outline">¿Qué es InfoBoost?</a>
               </div>
             </div>
             <div className="col-lg-5 d-none d-lg-block">
@@ -40,8 +79,8 @@ export default function InfoboostPage() {
       </section>
 
       {/* What is */}
-      <section className="about-section">
-        <div className="container">
+      <section id="que-es" className="about-section">
+        <div className="container d-flex">
           <div className="row g-5 align-items-center">
             <div className="col-lg-5">
               <div className="about-label">¿QUÉ ES?</div>
@@ -183,37 +222,47 @@ export default function InfoboostPage() {
                 <h2 className="about-title">Contáctanos</h2>
                 <p className="about-text">Completá el formulario y te responderemos a la brevedad</p>
               </div>
-              <form className="about-form">
+              {sent ? (
+                <div className="text-center" style={{ padding: '3rem 0' }}>
+                  <div style={{ width: 72, height: 72, borderRadius: '50%', background: '#e8f5e9', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                    <i className="bi bi-check-lg" style={{ fontSize: '2rem', color: '#2e7d32' }} />
+                  </div>
+                  <h2 className="about-title">Mensaje enviado</h2>
+                  <p className="about-text">Gracias por contactarnos. Te responderemos a la brevedad.</p>
+                </div>
+              ) : (
+              <form className="about-form" onSubmit={handleContactSubmit}>
                 <div className="row g-3">
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="Nombre" />
+                    <input type="text" name="nombre" className="about-input" placeholder="Nombre" value={contact.nombre} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="Apellido" />
+                    <input type="text" name="apellido" className="about-input" placeholder="Apellido" value={contact.apellido} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="email" className="about-input" placeholder="Email" />
+                    <input type="email" name="email" className="about-input" placeholder="Email" value={contact.email} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="Localidad" />
+                    <input type="text" name="localidad" className="about-input" placeholder="Localidad" value={contact.localidad} onChange={handleContactChange} required />
                   </div>
                   <div className="col-sm-6">
-                    <input type="text" className="about-input" placeholder="DNI" />
+                    <input type="text" name="dni" className="about-input" placeholder="DNI" value={contact.dni} onChange={handleContactChange} />
                   </div>
                   <div className="col-sm-6">
-                    <input type="tel" className="about-input" placeholder="Teléfono" />
+                    <input type="tel" name="telefono" className="about-input" placeholder="Teléfono" value={contact.telefono} onChange={handleContactChange} />
                   </div>
                   <div className="col-12">
-                    <input type="text" className="about-input" placeholder="Actividad / Ocupación / Profesión" />
+                    <input type="text" name="actividad" className="about-input" placeholder="Actividad / Ocupación / Profesión" value={contact.actividad} onChange={handleContactChange} />
                   </div>
                   <div className="col-12">
-                    <textarea className="about-input about-textarea" rows={4} placeholder="Mensaje" />
+                    <textarea name="mensaje" className="about-input about-textarea" rows={4} placeholder="Mensaje" value={contact.mensaje} onChange={handleContactChange} />
                   </div>
                   <div className="col-12 text-center">
-                    <button type="submit" className="about-btn-primary">Enviar mensaje</button>
+                    <button type="submit" className="about-btn-primary" disabled={sending}>{sending ? 'Enviando...' : 'Enviar mensaje'}</button>
                   </div>
                 </div>
               </form>
+              )}
             </div>
           </div>
         </div>

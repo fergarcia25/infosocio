@@ -34,15 +34,15 @@ body {
   margin-left: auto;
   margin-right: auto;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgb(243 243 243 / 35%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 100%);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 4px 10px rgba(159, 159, 159, 0.4);
-  border: 1px solid rgb(243 243 243 / 35%);
   animation: nav-enter 3.5s ease-out forwards;
 
   .container-fluid > :not(.navbar-brand):not(.navbar-toggler) {
-    animation: nav-children-enter 2.5s ease-out forwards;
+    animation: nav-children-enter 1.5s ease-out forwards;
   }
 
   
@@ -66,19 +66,21 @@ body {
     right: var(--nav-right);
 
   }
-  57.1% {
+  67.1% {
     opacity: 1;
-    max-width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
+    width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
+    max-width: 1200px;
     min-width: 190px;
     left: var(--nav-left);
     right: var(--nav-right);
-    margin-right: calc(var(--bs-gutter-x) * 1.4);
+      margin-right: calc(var(--bs-gutter-x) * 1.4);
     margin-left: calc(var(--bs-gutter-x) * 1.4);
 
   }
   to {
     opacity: 1;
-    max-width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
+    width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
+    max-width: 1200px;
     min-width: 230px;
     left: var(--nav-left);
     right: var(--nav-right);
@@ -110,6 +112,12 @@ body {
     right: calc(var(--bs-gutter-x) * 1.4);
     width: auto;
   }
+}
+
+.navbar-scrolled {
+  border: 1px solid rgb(243 243 243 / 30%);
+  background: rgba(255, 255, 255, 0.65);
+  
 }
 
 .navbar-brand {
@@ -376,7 +384,8 @@ body {
     background: linear-gradient(135deg, rgba(255, 111, 0, 0.15), rgba(183, 28, 28, 0.05));
     top: 40%;
     right: 20%;
-    animation: about-hero-float 6s ease-in-out infinite reverse;
+    animation: about-hero-
+    t 6s ease-in-out infinite reverse;
   }
 
   .about-circle-3 {
@@ -470,8 +479,8 @@ body {
 
 .home-hero-floating-link {
     position: absolute;
-    right: 50px;
-    bottom: 5vh;
+    right: 30px;
+    top: 16vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -480,13 +489,14 @@ body {
     width: 99px;
     height: 99px;
     border-radius: 50%;
-    border: 1px solid #b71c1cb3;
-    background: rgba(183, 28, 28, 0.1);
+    border: 1px solid rgb(91 37 37 / 70%);
+    background: rgba(183, 28, 28, 0.35);
     backdrop-filter: blur(20px);
     color: #fff;
-    font-size: 0.875rem;
-    font-weight: 400;
+    font-size: 0.75rem;
+    font-weight: 500;
     text-decoration: none;
+    text-transform: uppercase;
     text-align: center;
     line-height: 1.2;
     opacity: 0;
@@ -495,14 +505,17 @@ body {
     cursor: pointer;
 
   i {
-    font-size: 1.6rem;
-    color: #b71c1c;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: #d32f2f;
+    background: #b71c1c3d;
+    background: rgba(183, 28, 28, 0.65);
     color: #fff;
+    
+    box-shadow: 0 4px 10px rgba(159, 159, 159, 0.4);
   }
 }
 
@@ -511,9 +524,28 @@ body {
     transform: translateX(60px) rotate(0deg);
     opacity: 0;
   }
+  65% {
+    transform: translateX(0) rotate(-360deg);
+    opacity: 1;
+    width: 99px;
+    height: 99px;
+    box-shadow: 0 4px 10px rgba(159, 159, 159, 0.1);
+  }
+  80%  {
+    transform: translateX(0) rotate(-360deg);
+    opacity: 1;
+    width: 104px;
+    height: 104px;
+    box-shadow: 0 4px 10px rgba(159, 159, 159, 0.4);
+  }
+  95%  {
+    transform: translateX(0) rotate(-360deg);
+    opacity: 1;
+  }
   to {
     transform: translateX(0) rotate(-360deg);
     opacity: 1;
+    box-shadow: 0 4px 10px rgba(159, 159, 159, 0.1);
   }
 }
 
@@ -888,6 +920,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: about-fade-in 1.6s ease-out 0.8s forwards;
 }
 
 .about-circle {
@@ -980,7 +1013,14 @@ body {
 }
 
 .about-section {
-  padding: 5rem 0;
+  padding: 7.5rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-section > .container {
+  width: 100%;
 }
 
 .about-plans-section {
@@ -1214,7 +1254,10 @@ body {
 
 .about-benefits-section {
   background: #0a0a1a;
-  padding: 5rem 0;
+  padding: 0rem 0;
+  height: 100vh;
+  display: flex;
+  vertical-align: middle;
 }
 
 .about-benefits-grid {
