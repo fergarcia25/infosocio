@@ -1,18 +1,18 @@
 <?php
 // Database configuration
-/*
+
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'infosocio');
-*/
 
-// Production (uncomment for production)
-define('DB_HOST', 'lightslategrey-snake-944430.hostingersite.com');
+/*
+// Production
+define('DB_HOST', 'localhost');
 define('DB_NAME', 'u653101286_infosocio');
 define('DB_USER', 'u653101286_infosocio');
 define('DB_PASS', '?FUI~f6#h0');
-
+*/
 
 function getDB() {
     static $pdo = null;
@@ -30,7 +30,7 @@ function getDB() {
             );
         } catch (PDOException $e) {
             http_response_code(500);
-            echo json_encode(['success' => false, 'message' => 'Database connection failed']);
+            echo json_encode(['success' => false, 'message' => 'Database connection failed: ' . $e->getMessage()]);
             exit;
         }
     }

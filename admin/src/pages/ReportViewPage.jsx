@@ -23,8 +23,8 @@ export default function ReportViewPage() {
     if (!reportRef.current) return
     setGeneratingPdf(true)
     try {
-      const canvas = await html2canvas(reportRef.current, { scale: 2, useCORS: true, logging: false })
-      const imgData = canvas.toDataURL('image/png')
+      const canvas = await html2canvas(reportRef.current, { scale: 1.5, useCORS: true, logging: false })
+      const imgData = canvas.toDataURL('image/jpeg', 0.8)
       const pdf = new jsPDF('p', 'mm', 'a4')
       const pdfWidth = pdf.internal.pageSize.getWidth()
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width
@@ -32,13 +32,13 @@ export default function ReportViewPage() {
       let position = 0
       const pageHeight = pdf.internal.pageSize.getHeight()
 
-      pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight)
+      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight)
       heightLeft -= pageHeight
 
       while (heightLeft > 0) {
         position = heightLeft - pdfHeight
         pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight)
+        pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight)
         heightLeft -= pageHeight
       }
 

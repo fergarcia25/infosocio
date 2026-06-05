@@ -1,5 +1,10 @@
 @import 'variables';
 
+// Definición de color corporativo
+$brand-red: #b71c1c;
+
+
+
 // Estilos globales
 * {
   margin: 0;
@@ -68,8 +73,8 @@ body {
   }
   67.1% {
     opacity: 1;
-    width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
-    max-width: 1200px;
+    width: calc(102% - (calc(var(--bs-gutter-x) * 1.4)*2));
+    max-width: 1300px;
     min-width: 190px;
     left: var(--nav-left);
     right: var(--nav-right);
@@ -80,7 +85,7 @@ body {
   to {
     opacity: 1;
     width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
-    max-width: 1200px;
+    max-width: 1300px;
     min-width: 230px;
     left: var(--nav-left);
     right: var(--nav-right);
@@ -116,8 +121,7 @@ body {
 
 .navbar-scrolled {
   border: 1px solid rgb(243 243 243 / 30%);
-  background: rgba(255, 255, 255, 0.65);
-  
+  background: linear-gradient(90deg, rgba(255,255,255,0.875) 0%, rgba(255,255,255,0.65) 100%);
 }
 
 .navbar-brand {
@@ -1420,3 +1424,45 @@ body {
   resize: vertical;
   min-height: 120px;
 }
+
+// --- ESTILOS ESPECÍFICOS PARA EL INFORME ---
+.report-container {
+  .card {
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 12px rgba(0,0,0,0.1);
+    
+    .card-body {
+      padding: 1.25rem;
+    }
+  }
+
+  // Encabezados de sección rojos
+  h5.fw-bold {
+    color: $brand-red;
+  }
+
+  // Estilo de tablas para el informe
+  .table {
+    border: 1px solid #dee2e6;
+    thead {
+      background-color: $brand-red !important;
+      color: #ffffff;
+      th {
+        border-color: darken($brand-red, 5%);
+        font-size: 0.85rem;
+        padding: 8px !important;
+      }
+    }
+    tbody td {
+      font-size: 0.85rem;
+      padding: 8px !important;
+      vertical-align: middle;
+    }
+  }
+}
+
+// Sobreescritura de colores de elementos
+.text-muted { color: #6c757d; }
+.text-danger { color: $brand-red !important; }
+.text-success { color: #2e7d32 !important; } // Verde para estados positivos

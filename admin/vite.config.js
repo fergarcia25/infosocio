@@ -3,7 +3,21 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   base: '/admin/',
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'inject-entry',
+      transformIndexHtml: {
+        order: 'pre',
+        handler(html) {
+          return html.replace(
+            '</body>',
+            '<script type="module" src="/src/main.jsx"></script>\n</body>'
+          );
+        },
+      },
+    },
+  ],
   server: {
     port: 5174,
     proxy: {

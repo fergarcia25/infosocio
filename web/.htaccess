@@ -1,12 +1,19 @@
+DirectoryIndex index.php index.html
+
+ErrorDocument 404 /web/index.php
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Rewrite /web to /web/dist/index.html
     RewriteRule ^$ dist/index.html [L]
 
+    # Serve existing files/dirs directly
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^((?!dist/).+)$ dist/$1 [L]
 
+    # SPA fallback
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^dist/ dist/index.html [L]

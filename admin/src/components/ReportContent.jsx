@@ -23,6 +23,7 @@ function formatDate(val) {
 }
 
 import ScoringChart from './ScoringChart.jsx'
+import logoWhiteFull from '../assets/images/logo-white-full.png'
 
 function Field({ label, value }) {
   return (
@@ -63,7 +64,7 @@ export default function ReportContent({ data, reportRef }) {
   const months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
 
   return (
-    <div ref={reportRef} className="bg-white report-container" style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem', fontFamily: 'Roboto, sans-serif' }}>
+    <div ref={reportRef} className="bg-white report-container p-4" style={{ fontFamily: 'Roboto, sans-serif' }}>
       <style>{`
         .report-container h1, .report-container h2, .report-container h3,
         .report-container h4, .report-container h5, .report-container h6 {
@@ -88,6 +89,16 @@ export default function ReportContent({ data, reportRef }) {
           border-bottom: none;
         }
       `}</style>
+
+      {/* Encabezado con logo */}
+      <div className="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+        <img src={logoWhiteFull} alt="Infosocio" style={{ maxHeight: '60px' }} />
+        <div className="text-end">
+          <h4 className="fw-bold mb-0" style={{ color: '#b71c1c' }}>INFORME</h4>
+          <div className="small">Fecha: {new Date().toLocaleDateString('es-AR')}</div>
+        </div>
+      </div>
+
       <div className="d-flex justify-content-between align-items-start pb-2 mb-2 border-bottom">
         <h4 className="fw-bold mb-0">
           {v(dp.apellido)}, {v(dp.nombre)}
@@ -100,7 +111,7 @@ export default function ReportContent({ data, reportRef }) {
 
       <div className="row g-3">
         <div className="col-lg-6 col-12">
-          <Section icon="person" title="Datos Personales">
+          <Section icon="person-fill" title="Datos Personales">
             <div style={{ borderRadius: '8px', padding: '0' }}>
               <div className="row g-2 mt-3">
                 <div className="col-6">
@@ -168,7 +179,7 @@ export default function ReportContent({ data, reportRef }) {
           </Section>
         </div>
         {score != null && (
-          <div className="col-6 mb-0">
+          <div className="col-lg-6 mb-0">
             <ScoringChart score={parseInt(v(score))} />
           </div>
         )}
@@ -354,7 +365,7 @@ export default function ReportContent({ data, reportRef }) {
             <p className="text-muted small mb-0 mt-1">
              Esta sección analiza la situación de empleo actual del titular y clasifica su remuneración estimada dentro de una escala de rangos salariales.
             </p>
-            
+
             <table className="table table-sm mt-2 mb-0">
               <thead>
                 <tr>
@@ -422,7 +433,7 @@ export default function ReportContent({ data, reportRef }) {
         <Section icon="car-front" title="Historial de Automotores (Bienes Anteriores)">
           <div className="table-responsive">
             <p className="text-muted small mb-0 mt-1">
-              Registra el historial de vehículos que el titular tuvo a su nombre en el pasado (ya transferidos o dados de baja). 
+              Registra el historial de vehículos que el titular tuvo a su nombre en el pasado (ya transferidos o dados de baja).
             </p>
             <table className="table table-sm mt-2 mb-0">
               <thead>
@@ -458,7 +469,7 @@ export default function ReportContent({ data, reportRef }) {
         <Section icon="currency-exchange" title="Situación Financiera">
           <div className="table-responsive">
             <p className="text-muted small mb-0 mt-1">
-              
+
             </p>
             <table className="table table-sm mt-2 mb-0">
               <thead>
@@ -530,7 +541,7 @@ export default function ReportContent({ data, reportRef }) {
         <Section icon="check-circle" title="Actividades">
           <div className="table-responsive">
             <p className="text-muted small mb-0 mt-1">
-              
+
             </p>
             <table className="table table-sm mt-2 mb-0">
               <thead>

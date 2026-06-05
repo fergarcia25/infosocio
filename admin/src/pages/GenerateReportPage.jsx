@@ -46,8 +46,8 @@ export default function GenerateReportPage() {
     if (!reportRef.current) return
     setGeneratingPdf(true)
     try {
-      const canvas = await html2canvas(reportRef.current, { scale: 2, useCORS: true, logging: false })
-      const imgData = canvas.toDataURL('image/png')
+      const canvas = await html2canvas(reportRef.current, { scale: 1.5, useCORS: true, logging: false })
+      const imgData = canvas.toDataURL('image/jpeg', 0.8)
       const pdf = new jsPDF('p', 'mm', 'a4')
       const pdfWidth = pdf.internal.pageSize.getWidth()
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width
@@ -55,13 +55,13 @@ export default function GenerateReportPage() {
       let position = 0
       const pageHeight = pdf.internal.pageSize.getHeight()
 
-      pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight)
+      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight)
       heightLeft -= pageHeight
 
       while (heightLeft > 0) {
         position = heightLeft - pdfHeight
         pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight)
+        pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight)
         heightLeft -= pageHeight
       }
 
@@ -153,7 +153,7 @@ export default function GenerateReportPage() {
                   </button>
                 </div>
               </div>
-              <div className="modal-body p-0">
+              <div className="modal-body p-0" style={{ maxWidth: '992px', margin: '0 auto' }}>
                 <ReportContent data={reportData} reportRef={reportRef} />
               </div>
             </div>

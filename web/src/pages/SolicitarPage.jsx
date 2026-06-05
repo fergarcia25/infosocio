@@ -101,17 +101,17 @@ export default function SolicitarPage() {
         {/* Top row — persona + datos requeridos + precio */}
         <div className="row g-4 my-3">
           <div className="col-lg-4 col-sm-12 d-flex">
-            <div className="bg-white rounded-3 shadow-sm p-4 flex-fill">
-              <div className="mb-3 pb-2 border-bottom">
+            <div className="rounded-3 p-4 flex-fill" style={{ background: '#0a0a1a', backgroundImage: 'radial-gradient(ellipse 700px 400px at 20% 50%, rgba(183,28,28,0.12), transparent), radial-gradient(ellipse 500px 400px at 80% 30%, rgba(255,111,0,0.06), transparent)' }}>
+              <div className="mb-3 pb-2" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                 {(() => {
                   const parts = (persona.nombre || '').split(',')
                   return (
                     <>
-                      <h3 className="fw-bold mb-0" style={{ color: '#b71c1c', fontSize: '1.2rem' }}>
+                      <h3 className="fw-bold mb-0" style={{ color: '#fff', fontSize: '1.8rem' }}>
                         {parts[0]?.trim() || persona.nombre}
                       </h3>
                       {parts[1] && (
-                        <h5 className="fw-bold mb-0 pb-2" style={{ color: '#b71c1c' }}>
+                        <h5 className="fw-bold mb-0 pb-2" style={{ color: '#b71c1c', fontSize: '1.3rem' }}>
                           {parts[1].trim()}
                         </h5>
                       )}
@@ -121,20 +121,20 @@ export default function SolicitarPage() {
               </div>
               <div>
                 <div className="mb-2">
-                  <span className="text-muted small d-block">CDU / CUIL</span>
-                  <p className='fw-bold fs-5'>{persona.cdu}</p>
+                  <span className="small d-block" style={{ color: 'rgba(255,255,255,0.5)' }}>CDU / CUIL</span>
+                  <p className='fw-bold fs-5' style={{ color: '#fff' }}>{persona.cdu}</p>
                 </div>
                 <div className="mb-2">
-                  <span className="text-muted small d-block">Edad</span>
-                  <p className='fw-bold fs-5'>{persona.edad} años</p>
+                  <span className="small d-block" style={{ color: 'rgba(255,255,255,0.5)' }}>Edad</span>
+                  <p className='fw-bold fs-5' style={{ color: '#fff' }}>{persona.edad} años</p>
                 </div>
                 <div className="mb-2">
-                  <span className="text-muted small d-block">Provincia</span>
-                  <p className='fw-bold fs-5'>{persona.provincia || '-'}</p>
+                  <span className="small d-block" style={{ color: 'rgba(255,255,255,0.5)' }}>Provincia</span>
+                  <p className='fw-bold fs-5' style={{ color: '#fff' }}>{persona.provincia || '-'}</p>
                 </div>
                 <div className="mb-0">
-                  <span className="text-muted small d-block">Ciudad</span>
-                  <p className='fw-bold fs-5'>{persona.ciudad || '-'}</p>
+                  <span className="small d-block" style={{ color: 'rgba(255,255,255,0.5)' }}>Ciudad</span>
+                  <p className='fw-bold fs-5' style={{ color: '#fff' }}>{persona.ciudad || '-'}</p>
                 </div>
               </div>
             </div>
