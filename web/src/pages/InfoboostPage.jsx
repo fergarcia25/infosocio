@@ -9,8 +9,8 @@ export default function InfoboostPage() {
             <div className="col-lg-7">
               <span className="about-tag">InfoBoost</span>
               <h1 className="about-hero-title">
-                Multiplicá el poder de tus bases de datos<br />
-                <span className="text-gradient">en tiempo récord</span>
+                <span className="title-line">Multiplicá el poder de tus bases de datos</span><br />
+                <span className="title-line text-gradient">en tiempo récord</span>
               </h1>
               <p className="about-hero-sub">
                 Transformá listas vacías en información estratégica. Subí tu base de DNI, CUIT o patentes y obtené datos de contacto, patrimoniales y comerciales actualizados de forma masiva y 100% autogestionable.

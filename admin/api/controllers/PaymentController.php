@@ -10,6 +10,7 @@ class PaymentController {
         $nombre = $input['nombre'] ?? 'Informe';
         $email = $input['email'] ?? '';
         $whatsapp = $input['whatsapp'] ?? '';
+        $query = $input['query'] ?? '';
 
         if (empty($cdu) || empty($email)) {
             return ['success' => false, 'error' => 'Faltan datos requeridos (cdu, email)'];
@@ -89,8 +90,8 @@ class PaymentController {
 
         try {
             $stmt = $db->prepare(
-                "INSERT INTO solicitudes (dni, cuil, nombre, email_destino, whatsapp, monto, pago_estado, estado, mp_preference_id, mp_init_point)
-                 VALUES (?, ?, ?, ?, ?, ?, 'pendiente', 'pendiente', ?, ?)"
+                "INSERT INTO solicitudes (dni, cuil, nombre, email_destino, telefono, query, precio, pago_estado, estado, pago_id)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, 'pendiente', 'pendiente', ?)"
             );
             $stmt->execute([
                 $cdu,
@@ -98,9 +99,9 @@ class PaymentController {
                 $nombre,
                 $email,
                 $whatsapp,
+                $query,
                 $precio_informe,
                 $mp_id,
-                $init_point,
             ]);
         } catch (Exception $e) {
             error_log("Error guardando solicitud en MySQL: " . $e->getMessage());

@@ -1,11 +1,19 @@
-import { useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/images/logo-full.png'
 
 export default function Header() {
   const [query, setQuery] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation()
+  const searchRef = useRef(null)
+
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      searchRef.current?.focus()
+    }
+  }, [location.pathname])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -34,16 +42,17 @@ export default function Header() {
   )
 
   const searchForm = (
-    <form onSubmit={handleSubmit} className="d-flex" style={{ background: '#f1f1f1', borderRadius: '50px', padding: '0.2rem' }}>
+    <form onSubmit={handleSubmit} className="d-flex" style={{ background: '#f1f1f1', borderRadius: '16px', padding: '0' }}>
       <input
+        ref={searchRef}
         type="text"
         className="form-control border-0"
-        placeholder="Buscar..."
+        placeholder="Buscar.."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        style={{ background: 'transparent', fontSize: '0.85rem' }}
+        style={{ background: 'transparent', padding: '6px 10px', borderTopLeftRadius: '16px', borderBottomLeftRadius: '16px', }}
       />
-      <button className="btn btn-dark fw-bold" type="submit" style={{ fontSize: '0.8rem', borderRadius: '50px', padding: '0.3rem 1rem' }}>
+      <button className="btn btn-dark fw-bold" type="submit" style={{ borderRadius: '16px', padding: '0.3rem 1rem' }}>
         Buscar
       </button>
     </form>

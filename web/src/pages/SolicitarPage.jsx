@@ -12,6 +12,7 @@ export default function SolicitarPage() {
   const location = useLocation()
   const navigate = useNavigate()
   const persona = location.state?.persona
+  const searchQuery = location.state?.query || ''
 
   const [email, setEmail] = useState('')
   const [confirmEmail, setConfirmEmail] = useState('')
@@ -61,6 +62,7 @@ export default function SolicitarPage() {
         nombre: persona.nombre,
         email,
         whatsapp,
+        query: searchQuery,
       })
 
       if (res.success) {
@@ -94,49 +96,51 @@ export default function SolicitarPage() {
           </button>
         </div>
 
-        <hr className="my-4" />
+       
 
-        {/* Top row — equal-height cards */}
-        <div className="row g-4 mb-4">
-          <div className="col-lg-6 d-flex">
+        {/* Top row — persona + datos requeridos + precio */}
+        <div className="row g-4 my-3">
+          <div className="col-lg-4 col-sm-12 d-flex">
             <div className="bg-white rounded-3 shadow-sm p-4 flex-fill">
-              <div className="d-flex align-items-center gap-3 mb-3 pb-2 border-bottom">
-                {persona.foto ? (
-                  <img
-                    src={persona.foto}
-                    alt=""
-                    className="rounded-2 object-fit-cover"
-                    style={{ width: '100px', height: '100px' }}
-                  />
-                ) : (
-                  <i className="bi bi-person-fill text-secondary" style={{ fontSize: '100px', lineHeight: 1 }}></i>
-                )}
-                <h5 className="fw-bold mb-0" style={{ color: '#b71c1c' }}>
-                  {persona.nombre}
-                </h5>
+              <div className="mb-3 pb-2 border-bottom">
+                {(() => {
+                  const parts = (persona.nombre || '').split(',')
+                  return (
+                    <>
+                      <h3 className="fw-bold mb-0" style={{ color: '#b71c1c', fontSize: '1.2rem' }}>
+                        {parts[0]?.trim() || persona.nombre}
+                      </h3>
+                      {parts[1] && (
+                        <h5 className="fw-bold mb-0 pb-2" style={{ color: '#b71c1c' }}>
+                          {parts[1].trim()}
+                        </h5>
+                      )}
+                    </>
+                  )
+                })()}
               </div>
-              <div className="row g-3">
-                <div className="col-sm-6">
+              <div>
+                <div className="mb-2">
                   <span className="text-muted small d-block">CDU / CUIL</span>
-                  <strong>{persona.cdu}</strong>
+                  <p className='fw-bold fs-5'>{persona.cdu}</p>
                 </div>
-                <div className="col-sm-6">
+                <div className="mb-2">
                   <span className="text-muted small d-block">Edad</span>
-                  <strong>{persona.edad} años</strong>
+                  <p className='fw-bold fs-5'>{persona.edad} años</p>
                 </div>
-                <div className="col-sm-6">
+                <div className="mb-2">
                   <span className="text-muted small d-block">Provincia</span>
-                  <strong>{persona.provincia || '-'}</strong>
+                  <p className='fw-bold fs-5'>{persona.provincia || '-'}</p>
                 </div>
-                <div className="col-sm-6">
+                <div className="mb-0">
                   <span className="text-muted small d-block">Ciudad</span>
-                  <strong>{persona.ciudad || '-'}</strong>
+                  <p className='fw-bold fs-5'>{persona.ciudad || '-'}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-lg-6 d-flex">
-            <div className="bg-white rounded-3 shadow-sm p-4 flex-fill">
+          <div className="col-lg-8 col-sm-12">
+            <div className="bg-white rounded-3 shadow-sm p-4 mb-3">
               <h6 className="fw-bold mb-3">Datos requeridos</h6>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -190,42 +194,43 @@ export default function SolicitarPage() {
                 )}
               </form>
             </div>
+
+            <div className="bg-white rounded-3 shadow-sm p-4">
+              <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <span className="fw-semibold">Valor del informe</span>
+                <span className="fs-4 fw-bold" style={{ color: '#b71c1c' }}>
+                  {precioLoading ? (
+                    <span className="spinner-border spinner-border-sm" role="status"></span>
+                  ) : (
+                    formatPrice(precio)
+                  )}
+                </span>
+              </div>
+
+              <p className="small mb-4">
+                <i className="bi bi-info-circle me-1" style={{ color: '#b71c1c' }}></i>
+                <strong>Información importante:</strong> Una vez abonado, procesaremos tu pedido y el informe te llegará al Gmail ingresado en solo 5 minutos.
+              </p>
+
+              <div className="text-end">
+                <button
+                  type="submit"
+                  className="about-btn-primary"
+                  disabled={loading}
+                  onClick={handleSubmit}
+                >
+                  {loading ? (
+                    <>
+                      <span className="spinner-border spinner-border-sm"></span>
+                      Procesando...
+                    </>
+                  ) : (
+                    'Pagar con MercadoPago'
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-
-        {/* Bottom card — price + info + button */}
-        <div className="bg-white rounded-3 shadow-sm p-4">
-          <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
-            <span className="fw-semibold">Valor del informe</span>
-            <span className="fs-4 fw-bold" style={{ color: '#b71c1c' }}>
-              {precioLoading ? (
-                <span className="spinner-border spinner-border-sm" role="status"></span>
-              ) : (
-                formatPrice(precio)
-              )}
-            </span>
-          </div>
-
-          <p className="small mb-4">
-            <i className="bi bi-info-circle me-1" style={{ color: '#b71c1c' }}></i>
-            <strong>Información importante:</strong> Una vez abonado, procesaremos tu pedido y el informe te llegará al Gmail ingresado en solo 5 minutos.
-          </p>
-
-          <button
-            type="submit"
-            className="btn btn-dark btn-lg w-100 fw-bold d-flex align-items-center justify-content-center gap-2"
-            disabled={loading}
-            onClick={handleSubmit}
-          >
-            {loading ? (
-              <>
-                <span className="spinner-border spinner-border-sm"></span>
-                Procesando...
-              </>
-            ) : (
-              'Pagar con MercadoPago'
-            )}
-          </button>
         </div>
       </div>
     </div>

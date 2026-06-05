@@ -21,6 +21,8 @@ body {
 
 .navbar {
   --bs-navbar-brand-padding-y: 0;
+  --nav-left: 0;
+  --nav-right: 0;
   padding: 0.1rem 0.75rem;
   position: fixed;
   display: flex;
@@ -37,6 +39,77 @@ body {
   -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 4px 10px rgba(159, 159, 159, 0.4);
   border: 1px solid rgb(243 243 243 / 35%);
+  animation: nav-enter 3.5s ease-out forwards;
+
+  .container-fluid > :not(.navbar-brand):not(.navbar-toggler) {
+    animation: nav-children-enter 2.5s ease-out forwards;
+  }
+
+  
+
+
+}
+
+@keyframes nav-enter {
+  0% {
+    opacity: 0;
+    max-width: 190px;
+    min-width: 190px;
+    left: var(--nav-left);
+    right: var(--nav-right);
+
+  }
+  28.6% {
+    opacity: 1;
+    max-width: 190px;
+    left: var(--nav-left);
+    right: var(--nav-right);
+
+  }
+  57.1% {
+    opacity: 1;
+    max-width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
+    min-width: 190px;
+    left: var(--nav-left);
+    right: var(--nav-right);
+    margin-right: calc(var(--bs-gutter-x) * 1.4);
+    margin-left: calc(var(--bs-gutter-x) * 1.4);
+
+  }
+  to {
+    opacity: 1;
+    max-width: calc(100% - (calc(var(--bs-gutter-x) * 1.4)*2));
+    min-width: 230px;
+    left: var(--nav-left);
+    right: var(--nav-right);
+    margin-right: calc(var(--bs-gutter-x) * 1.4);
+    margin-left: calc(var(--bs-gutter-x) * 1.4);
+  }
+
+}
+
+@keyframes nav-children-enter {
+  0%, 85.7% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+.navbar {
+
+  
+  @media (max-width: 575.98px) {
+    --nav-left: calc(var(--bs-gutter-x) * 1.4);
+    --nav-right: calc(var(--bs-gutter-x) * 1.4);
+
+    left: calc(var(--bs-gutter-x) * 1.4);
+    right: calc(var(--bs-gutter-x) * 1.4);
+    width: auto;
+  }
 }
 
 .navbar-brand {
@@ -58,6 +131,26 @@ body {
     outline: none;
   }
 }
+@media (max-width: 992px) {
+  .navbar-toggler {
+    /* En lugar de display: none, lo ocultamos sin romper la animación */
+    visibility: hidden;
+    opacity: 0;
+    position: absolute; /* Evita que ocupe espacio físico durante el delay */
+    
+    /* Configuración de la animación: 3s de duración, 3s de delay */
+    animation: nav-toggler-enter 1s ease-out 2s forwards;
+  }
+}
+
+@keyframes nav-toggler-enter {
+  to {
+    /* Regresa al flujo normal de Bootstrap de forma segura */
+    visibility: visible;
+    opacity: 1;
+    position: static; 
+  }
+}
 
 // Offcanvas mobile menu
 .nav-overlay {
@@ -66,7 +159,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
   backdrop-filter: blur(2px);
 }
@@ -75,12 +168,12 @@ body {
   display: none;
   justify-self: center;
   position: fixed;
-  top: 25vh;
-  left: 15%;
-  height: 50vh;
-  width: 70%;
+  top: 15vh;
+  left: 5%;
+  height: 70vh;
+  width: 90%;
   z-index: 1050;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   flex-direction: column;
@@ -153,7 +246,7 @@ body {
 
 .nav-offcanvas-links {
   list-style: none;
-  padding: 2rem 1.5rem;
+  padding: 1rem 1.5rem;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -162,8 +255,8 @@ body {
 
   .nav-link {
     margin: 0;
-    padding: 0 !important;
-    font-size: 1.1rem;
+    padding: 1rem 0.6rem !important;
+    font-size: 1.3rem;
     font-weight: 500;
     color: #1a1a1a;
     background: none;
@@ -187,6 +280,10 @@ body {
     padding: 1.5rem 1.5rem 1.5rem;
     background: #b71c1c;
     border-radius: 20px;
+
+    .form-control {
+      font-size: 1.4rem !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -198,26 +295,28 @@ body {
 
 .navbar-nav {
   display: flex;
-  gap: 0.75rem;
-}
-.nav-link {
-  margin: 0;
-  padding: 0.4rem 0.8rem 0.45rem !important;
-  color: #141414;
-  font-size: 13px;
-  font-weight: 400;
-  text-align: center;
-  
-  border-radius: 20px;
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(139, 139, 139, 0.2);
-  transition: all 0.3s ease;
-  
-  &:hover, &.active {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-color: rgba(23, 23, 23, 0.2);
-    color: #000;
+  gap: 0.5rem;
+
+  .nav-link {
+    margin: 0;
+    padding: 8px 14px 8px !important;
+    color: #f1f1f1;
+    font-size: 0.79rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    
+    border-radius: 20px;
+    border: 0;
+    text-decoration: none;
+    background: #212529;
+    transition: all 0.3s ease;
+    
+    &:hover, &.active {
+      background: #282d33;
+      color: #d32f2f;
+    }
   }
 }
 
@@ -242,6 +341,11 @@ body {
   .form-control {
     padding: 1rem 1rem;
   }
+}
+
+.form-control:focus {
+  border: 0;
+  box-shadow: -7px 0 5px 5px rgba(30, 29, 29, 0.1);
 }
 
 // Home Hero (full viewport)
@@ -362,6 +466,55 @@ body {
   color: #fff;
   line-height: 1.15;
   font-size: clamp(0.85rem, 2vw, 0.85rem);
+}
+
+.home-hero-floating-link {
+    position: absolute;
+    right: 50px;
+    bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 99px;
+    height: 99px;
+    border-radius: 50%;
+    border: 1px solid #b71c1cb3;
+    background: rgba(183, 28, 28, 0.1);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.2;
+    opacity: 0;
+    animation: home-hero-float-in 1.2s ease-out 3s forwards;
+    z-index: 2;
+    cursor: pointer;
+
+  i {
+    font-size: 1.6rem;
+    color: #b71c1c;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #d32f2f;
+    color: #fff;
+  }
+}
+
+@keyframes home-hero-float-in {
+  from {
+    transform: translateX(60px) rotate(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotate(-360deg);
+    opacity: 1;
+  }
 }
 
 .home-slider-dots {
@@ -675,6 +828,7 @@ body {
 }
 
 .about-hero-title {
+  width: 100%;
   font-size: clamp(2.4rem, 3.2vw, 3.5rem);
   font-weight: 800;
   color: #fff;
@@ -780,6 +934,49 @@ body {
   border-radius: 24px;
   padding: 2rem;
   width: 220px;
+}
+
+// About hero entrance animations
+.about-hero {
+  .about-tag,
+  .about-hero-title,
+  .about-hero-sub,
+  .about-hero-visual,
+  .about-hero-card,
+  .about-hero .d-flex,
+  .search-container,
+  .home-slider,
+  .home-slider-dots {
+    opacity: 0;
+  }
+}
+
+.about-tag {
+  animation: about-fade-in 0.4s ease-out 0s forwards;
+}
+
+.about-hero-title {
+  animation: about-fade-in 1.8s ease-out 0.3s forwards;
+}
+
+.about-hero-visual {
+  animation: about-fade-in 0.6s ease-out 1.5s forwards;
+}
+
+.search-container,
+.about-hero-sub,
+.about-hero-card {
+  animation: about-fade-in 1.5s ease-out 2.5s forwards;
+}
+
+.home-slider,
+.home-slider-dots {
+  animation: about-fade-in 0.5s ease-out 1.7s forwards;
+}
+
+@keyframes about-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .about-section {

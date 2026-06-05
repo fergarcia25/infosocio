@@ -86,6 +86,7 @@ export default function ResultsPage() {
     const nombreCompleto = `${result.apellidos ? result.apellidos + ', ' : ''}${result.nombres || ''}`
     navigate('/solicitar', {
       state: {
+        query: searchParams.get('q') || '',
         persona: {
           nombre: nombreCompleto,
           cdu: result.cuit || result.nrodni || '',
@@ -126,7 +127,7 @@ export default function ResultsPage() {
 
           <div className="d-md-none mt-4">
             <button
-              className="btn btn-dark w-100 d-flex align-items-center justify-content-center gap-2"
+              className="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2"
               onClick={() => setShowFilters(!showFilters)}
             >
               <i className={`bi ${showFilters ? 'bi-funnel-fill' : 'bi-funnel'}`}></i>

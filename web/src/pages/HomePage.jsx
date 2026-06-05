@@ -71,7 +71,7 @@ export default function HomePage() {
           <div className="row align-items-center w-100">
             <div className="col-lg-8">
               <h1 className="about-hero-title">
-                Información estratégica para <span className="text-gradient">tomar decisiones seguras</span>
+                <span className="title-line">Información estratégica para <span className="text-gradient">tomar decisiones seguras</span></span>
               </h1>
               <p className="about-hero-sub">
                 Buscá por Nombre y Apellido, DNI o CUIL y obtené el informe más completo de Argentina.
@@ -90,6 +90,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        <a href="/" target='_blank' className="home-hero-floating-link">
+          <i className="bi bi-file-earmark-spreadsheet"></i>
+          Ver informe demo
+        </a>
 
         {/* Slider - full width outside container */}
         <div className="home-slider">
@@ -117,58 +122,6 @@ export default function HomePage() {
                 className={`home-slider-dot ${i === dotIndex ? 'active' : ''}`}
             />
           ))}
-        </div>
-      </section>
-
-      {/* Planes y servicios */}
-      <section className="about-plans-section" style={{ backgroundColor: '#f2f2f2' }}>
-        <div className="container">
-          <div className="text-center mb-5">
-            <div className="about-label">PLANES Y SERVICIOS</div>
-            <h2 className="about-title">Elegí la solución que mejor se adapte a tus necesidades</h2>
-            <p className="about-text" style={{ maxWidth: 600, margin: '0 auto' }}>
-              Dos formas de acceder a la información más completa del mercado.
-            </p>
-          </div>
-          <div className="row g-4 justify-content-center">
-            <div className="col-md-6 col-lg-5">
-              <div className="about-feat-card">
-                <h3 className="fw-bold text-gradient">InfoBoost</h3>
-                <p style={{ marginBottom: '1.5rem' }}>
-                  Subí tu base de DNI, CUIT o patentes y obtené datos de contacto, patrimoniales y comerciales actualizados de forma masiva y 100% autogestionable.
-                </p>
-                <Link to="/infoboost" className="about-btn-primary">Ver InfoBoost</Link>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-5">
-              <div className="about-feat-card">
-                <h3 className="fw-bold text-gradient">Infosocio Target</h3>
-                <p style={{ marginBottom: '1.5rem' }}>
-                  Mediante tecnología Big Data analizamos millones de señales digitales para construir bases de datos de potenciales clientes altamente calificados.
-                </p>
-                <Link to="/infosociotarget" className="about-btn-primary">Ver Infosocio Target</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services section */}
-      <section className="about-benefits-section">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2 className="about-title" style={{ color: '#fff' }}>¿Que contiene el informe?</h2>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' }}>En el informe podrás conocer la siguiente información de la persona.</p>
-          </div>
-          <div className="about-benefits-grid">
-            {plans.map((plan) => (
-              <div key={plan.id} className="about-benefit-card">
-                <i className={`bi ${plan.icon}`} />
-                <h4>{plan.title}</h4>
-                <p>{plan.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -227,6 +180,58 @@ export default function HomePage() {
                     <i className="bi bi-chevron-right"></i>
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services section */}
+      <section className="about-benefits-section">
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className="about-title" style={{ color: '#fff' }}>¿Que contiene el informe?</h2>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' }}>En el informe podrás conocer la siguiente información de la persona.</p>
+          </div>
+          <div className="about-benefits-grid">
+            {plans.map((plan) => (
+              <div key={plan.id} className="about-benefit-card">
+                <i className={`bi ${plan.icon}`} />
+                <h4>{plan.title}</h4>
+                <p>{plan.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Planes y servicios */}
+      <section className="about-plans-section" style={{ backgroundColor: '#f2f2f2' }}>
+        <div className="container">
+          <div className="text-center mb-5">
+            <div className="about-label">PLANES Y SERVICIOS</div>
+            <h2 className="about-title">Elegí la solución que mejor se adapte a tus necesidades</h2>
+            <p className="about-text" style={{ maxWidth: 600, margin: '0 auto' }}>
+              Dos formas de acceder a la información más completa del mercado.
+            </p>
+          </div>
+          <div className="row g-4 justify-content-center">
+            <div className="col-md-6 col-lg-5">
+              <div className="about-feat-card">
+                <h3 className="fw-bold text-gradient">InfoBoost</h3>
+                <p style={{ marginBottom: '1.5rem' }}>
+                  Subí tu base de DNI, CUIT o patentes y obtené datos de contacto, patrimoniales y comerciales actualizados de forma masiva y 100% autogestionable.
+                </p>
+                <Link to="/infoboost" className="about-btn-primary">Ver InfoBoost</Link>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-5">
+              <div className="about-feat-card">
+                <h3 className="fw-bold text-gradient">Infosocio Target</h3>
+                <p style={{ marginBottom: '1.5rem' }}>
+                  Mediante tecnología Big Data analizamos millones de señales digitales para construir bases de datos de potenciales clientes altamente calificados.
+                </p>
+                <Link to="/infosociotarget" className="about-btn-primary">Ver Infosocio Target</Link>
               </div>
             </div>
           </div>

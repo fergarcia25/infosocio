@@ -9,8 +9,8 @@ export default function AboutPage() {
             <div className="col-lg-7">
               <span className="about-tag">Infosocio Target</span>
               <h1 className="about-hero-title">
-                Encontrá a tus próximos clientes con<br />
-                <span className="text-gradient">Inteligencia de la Información</span>
+                <span className="title-line">Encontrá a tus próximos clientes con</span><br />
+                <span className="title-line text-gradient">Inteligencia de la Información</span>
               </h1>
               <p className="about-hero-sub">
                 Dejá de prospectar a ciegas. Accedé a bases de datos nuevas, actualizadas y segmentadas a la medida de tu negocio.
