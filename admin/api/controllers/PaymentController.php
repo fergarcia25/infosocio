@@ -35,9 +35,9 @@ class PaymentController {
         $es_local = in_array($host, ['localhost', '127.0.0.1']) || $protocolo === 'http';
 
         // ===== PRODUCCIÓN =====
-        $url_success = $base_url . '/exito.php';
-        $url_failure = $base_url . '/fallo.php';
-        $url_pending = $base_url . '/pendiente.php';
+        $url_success = $base_url . '/web/exito.php';
+        $url_failure = $base_url . '/web/fallo.php';
+        $url_pending = $base_url . '/web/pendiente.php';
 
         // ===== DESARROLLO LOCAL =====
         if ($es_local) {

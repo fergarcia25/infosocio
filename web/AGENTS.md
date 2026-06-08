@@ -4,12 +4,15 @@
 - React 19 + Vite 8 + Bootstrap 5 + SASS
 
 ## Base path
-`base: '/web/'` — the app lives at `http://infosocio.test/web/`.
+| Environment | `vite.config.js` base | Live at |
+|---|---|---|
+| Production | `'/'` | `https://infosocio.com/` |
+| Local dev | `'/web/'` | `http://infosocio.test/web/` |
 
 ## Dev
 ```bash
 npm run dev        # http://localhost:5173/web/
-npm run build      # Build to /dist → served by Laragon at http://infosocio.test/web/
+npm run build      # Build to web/dist → served by Laragon at http://infosocio.test/web/
 ```
 
 ## Proxy (Vite)

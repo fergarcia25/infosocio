@@ -4,6 +4,11 @@
 - React 19 + Vite 8 + Bootstrap 5 + SASS + Recharts
 - PHP backend (REST API) in `/admin/api/`
 
+## Base path
+| Environment | `vite.config.js` base | Live at |
+|---|---|---|
+| All | `'/admin/'` | `https://infosocio.com/admin/` |
+
 ## Dev
 ```bash
 npm run dev        # http://localhost:5174

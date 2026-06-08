@@ -761,10 +761,10 @@ export default function ReportContent({ data, reportRef }) {
 
       <div className="small text-muted mt-4 pt-3 border-top">
         <p className="mb-1">
-          El presente informe de INFOSOCIO.COM.AR es un recurso complementario para la evaluación de negocios y no implica ninguna valoración implícita sobre la reputación, capacidad financiera o buen nombre del titular. El análisis final y la toma de decisiones son responsabilidad exclusiva del consultante. Con el fin de salvaguardar la privacidad y cumplir con la Ley 25.326, el usuario asume la obligación de mantener este reporte bajo estricta reserva, comprometiéndose a no exhibirlo ni distribuirlo a terceros, y a destruir las copias impresas inmediatamente después de cumplir su propósito.
+          El presente informe de INFOSOCIO.COM es un recurso complementario para la evaluación de negocios y no implica ninguna valoración implícita sobre la reputación, capacidad financiera o buen nombre del titular. El análisis final y la toma de decisiones son responsabilidad exclusiva del consultante. Con el fin de salvaguardar la privacidad y cumplir con la Ley 25.326, el usuario asume la obligación de mantener este reporte bajo estricta reserva, comprometiéndose a no exhibirlo ni distribuirlo a terceros, y a destruir las copias impresas inmediatamente después de cumplir su propósito.
         </p>
         <p className="mb-0 mt-2">
-          <strong>CONSULTAS:</strong> contacto@infosocio.com.ar
+          <strong>CONSULTAS:</strong> contacto@infosocio.com
         </p>
       </div>
     </div>
