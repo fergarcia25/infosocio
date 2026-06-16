@@ -39,6 +39,18 @@ export default function ResultCard({ result, onSolicitar }) {
                 <div className="fw-bold">{result.sexo === 'M' ? 'Masculino' : result.sexo === 'F' ? 'Femenino' : '-'}</div>
               </div>
             </div>
+            <div className="col-6">
+              <div style={{ backgroundColor: 'rgb(249 249 249)', borderRadius: '6px', padding: '6px 12px' }}>
+                <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Provincia</div>
+                <div className="fw-bold">{result.provincia || '-'}</div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div style={{ backgroundColor: 'rgb(249 249 249)', borderRadius: '6px', padding: '6px 12px' }}>
+                <div className="text-muted" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ciudad</div>
+                <div className="fw-bold">{result.ciudad || '-'}</div>
+              </div>
+            </div>
 
           </div>
         </div>

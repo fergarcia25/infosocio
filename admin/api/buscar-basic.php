@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-require_once __DIR__ . '/../../web/src/utils/functions.php';
-require_once __DIR__ . '/../../web/src/utils/excluidos.php';
+require_once __DIR__ . '/utils/functions.php';
+require_once __DIR__ . '/utils/excluidos.php';
 
 function RiesgoOnline($dni) {
     $url = 'https://serviciosweb.afip.gob.ar/Publico/Turnos/Turnos.aspx/getCiudadano';
@@ -292,8 +292,8 @@ foreach ($data as $person) {
         'sexo' => $sexo,
         'fechanac' => $fechanac,
         'edad' => (int)$edad,
-        'provincia' => $source['PROVINCIA'] ?? '',
-        'ciudad' => $source['CIUDAD'] ?? '',
+        'provincia' => $source['PROVINCIA'] ?? $source['provincia'] ?? '',
+        'ciudad' => $source['CIUDAD'] ?? $source['ciudad'] ?? '',
         'cuit' => $cuit,
     ];
 

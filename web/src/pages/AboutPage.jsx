@@ -44,7 +44,7 @@ export default function AboutPage() {
       <section className="about-hero">
         <div className="about-hero-bg" />
         <div className="container position-relative" style={{ zIndex: 1 }}>
-          <div className="row align-items-center min-vh-80">
+            <div className="row align-items-center min-vh-100">
             <div className="col-lg-7">
               <span className="about-tag">InfoTarget</span>
               <h1 className="about-hero-title">
@@ -54,9 +54,9 @@ export default function AboutPage() {
               <p className="about-hero-sub">
                 Dejá de prospectar a ciegas. Accedé a bases de datos nuevas, actualizadas y segmentadas a la medida de tu negocio.
               </p>
-              <div className="d-flex flex-wrap gap-3 mt-4">
-                <a href="#contacto" className="about-btn-primary">Solicitar información</a>
-                <a href="#que-es" className="about-btn-outline">¿Qué es InfoTarget?</a>
+              <div className="d-flex flex-wrap gap-3 mt-4 about-buttons">
+                <a href="#que-es" className="about-btn-primary">¿Qué es InfoTarget?</a>
+                <a href="#contacto" className="about-btn-outline">Solicitar información</a>
               </div>
             </div>
             <div className="col-lg-5 d-none d-lg-block">
@@ -322,10 +322,9 @@ export default function AboutPage() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <div className="text-center mb-5">
-                <span className="about-label">CONTACTO</span>
+              <div className="text-center mb-3">
                 <h2 className="about-title">Contáctanos</h2>
-                <p className="about-text">Completá el formulario y te responderemos a la brevedad</p>
+                <span className="about-label" style={{ color: '#b71c1c' }}>Completá el formulario y te responderemos a la brevedad</span>
               </div>
               {sent ? (
                 <div className="text-center" style={{ padding: '3rem 0' }}>

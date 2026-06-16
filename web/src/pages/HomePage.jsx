@@ -68,13 +68,13 @@ export default function HomePage() {
       <section className="about-hero home-hero">
         <div className="about-hero-bg" />
         <div className="container position-relative d-flex align-items-center" style={{ zIndex: 1, flex: 1, minHeight: 0 }}>
-          <div className="row align-items-center w-100">
+          <div className="row align-items-center">
             <div className="col-lg-8">
               <h1 className="about-hero-title">
                 <span className="title-line">Información estratégica para <span className="text-gradient">tomar decisiones seguras</span></span>
               </h1>
               <p className="about-hero-sub">
-                Buscá por Nombre y Apellido, DNI o CUIL y obtené el informe más completo de Argentina.
+                Buscá por Nombre y Apellido, DNI o CUIL y obtené el informe más completo de Argentina en solo 5 minutos.
               </p>
               <div className="mt-4 mb-3">
                 <SearchBar large />
@@ -114,14 +114,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-        <div className="home-slider-dots">
-          {sliderItems.map((_, i) => (
-            <span
-              key={i}
-                className={`home-slider-dot ${i === dotIndex ? 'active' : ''}`}
-            />
-          ))}
         </div>
       </section>
 
@@ -187,9 +179,9 @@ export default function HomePage() {
       </section>
 
       {/* Services section */}
-      <section id="beneficios" className="about-benefits-section">
+      <section id="beneficios" className="about-benefits-section g-5">
         <div className="container">
-          <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="text-center mb-5">
               <h2 className="about-title" style={{ color: '#fff' }}>¿Que contiene el informe?</h2>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' }}>En el informe podrás conocer la siguiente información de la persona.</p>

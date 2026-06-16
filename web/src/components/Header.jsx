@@ -46,7 +46,7 @@ export default function Header() {
         if (t < 1) {
           requestAnimationFrame(scroll)
         } else {
-          blockScroll(2000)
+          blockScroll(1000)
         }
       
       }
@@ -56,7 +56,7 @@ export default function Header() {
       animating.current = true
       const start = window.scrollY
       const target = getTarget()
-      const duration = 400
+      const duration = 200
       const startTime = performance.now()
 
     }
@@ -139,14 +139,9 @@ export default function Header() {
           </button>
 
           <div className={`nav-offcanvas ${menuOpen ? 'open' : ''}`}>
-            <div className="nav-offcanvas-header">
-              <Link className="navbar-brand" to="/" onClick={handleNavClick}>
-                <img src={logo} alt="InfoSocio" height="52" />
-              </Link>
-              <button className="nav-close-btn" onClick={() => setMenuOpen(false)}>
-                <i className="bi bi-x-lg"></i>
-              </button>
-            </div>
+            <button className="nav-close-btn" onClick={() => setMenuOpen(false)}>
+              <i className="bi bi-x-lg"></i>
+            </button>
             <ul className="nav-offcanvas-links">
               {navLinks}
             </ul>
@@ -156,10 +151,12 @@ export default function Header() {
           </div>
 
           <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mx-auto">
-              {navLinks}
-            </ul>
-            {searchForm}
+            <div className="d-flex align-items-center ms-auto gap-3">
+              <ul className="navbar-nav">
+                {navLinks}
+              </ul>
+              {searchForm}
+            </div>
           </div>
         </div>
       </nav>

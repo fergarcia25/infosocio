@@ -19,20 +19,19 @@ export default function SearchBar({ large = false }) {
 
   return (
     <form onSubmit={handleSubmit} className={`search-container ${large ? 'mx-auto' : ''}`}>
-      <div className="input-group input-group-lg">
+      <div className="home-search-wrapper">
         <input
           ref={inputRef}
           type="text"
           id="criterio"
           name="criterio"
-          className="form-control inp_box"
-          style={{ fontSize: '1rem' }}
-          placeholder={large ? "Buscar por Nombre, DNI o CUIL..." : "Nombre, DNI o CUIL..."}
+          className="form-control inp_box home-search-input"
+          placeholder={large ? "Buscar por NOMBRE, DNI ó CUIT" : "Nombre, DNI o CUIL..."}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="btn btn-dark fw-bold px-4" type="submit">
-          Buscar
+        <button className="btn btn-primary fw-bold px-4 home-search-btn" type="submit">
+          <i className="bi bi-search"></i>
         </button>
       </div>
     </form>

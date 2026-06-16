@@ -87,12 +87,11 @@ export default function SolicitarPage() {
               Completá los datos para recibir el informe solicitado.
             </p>
           </div>
-          <button
+            <button
             className="btn btn-outline-dark btn-sm"
             onClick={() => navigate(-1)}
           >
-            <i className="bi bi-arrow-left me-1"></i>
-            Volver
+            <i className="bi bi-arrow-left"></i>
           </button>
         </div>
 
@@ -125,8 +124,14 @@ export default function SolicitarPage() {
                   <p className='fw-bold fs-5' style={{ color: '#fff' }}>{persona.cdu}</p>
                 </div>
                 <div className="mb-2">
+                  <span className="small d-block" style={{ color: 'rgba(255,255,255,0.5)' }}>Sexo</span>
+                  <p className='fw-bold fs-5' style={{ color: '#fff' }}>
+                    {persona.sexo === 'M' ? 'Masculino' : persona.sexo === 'F' ? 'Femenino' : '-'}
+                  </p>
+                </div>
+                <div className="mb-2">
                   <span className="small d-block" style={{ color: 'rgba(255,255,255,0.5)' }}>Edad</span>
-                  <p className='fw-bold fs-5' style={{ color: '#fff' }}>{persona.edad} años</p>
+                  <p className='fw-bold fs-5' style={{ color: '#fff' }}>{persona.edad != null ? `${persona.edad} años` : '-'}</p>
                 </div>
                 <div className="mb-2">
                   <span className="small d-block" style={{ color: 'rgba(255,255,255,0.5)' }}>Provincia</span>

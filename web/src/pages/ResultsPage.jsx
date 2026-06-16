@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import ResultCard from '../components/ResultCard'
 import FilterSidebar from '../components/FilterSidebar'
 import Pagination from '../components/Pagination'
@@ -91,6 +91,7 @@ export default function ResultsPage() {
           nombre: nombreCompleto,
           cdu: result.cuit || result.nrodni || '',
           edad: result.edad ?? '',
+          sexo: result.sexo || '',
           provincia: result.provincia || '',
           ciudad: result.ciudad || '',
           foto: result.foto || '',
@@ -192,8 +193,11 @@ export default function ResultsPage() {
                     style={{ fontSize: '3rem', display: 'block', marginBottom: '1rem', color: '#999' }}
                   ></i>
                   <p className="text-muted">
-                    No se encontraron resultados para <strong>"{query}"</strong>
+                    No se encontraron resultados para tu busqueda, segurate de haber ingresado los datos correctamente.
                   </p>
+                  <Link to="/" className="about-btn-primary">
+                    Realizar nueva busqueda
+                  </Link>
                 </div>
               )}
             </>

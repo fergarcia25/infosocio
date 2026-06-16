@@ -44,7 +44,7 @@ export default function InfoboostPage() {
       <section className="about-hero">
         <div className="about-hero-bg" />
         <div className="container position-relative" style={{ zIndex: 1 }}>
-          <div className="row align-items-center min-vh-80">
+            <div className="row align-items-center min-vh-100">
             <div className="col-lg-7">
               <span className="about-tag">InfoBoost</span>
               <h1 className="about-hero-title">
@@ -54,9 +54,9 @@ export default function InfoboostPage() {
               <p className="about-hero-sub">
                 Transformá listas vacías en información estratégica. Subí tu base de DNI, CUIT o patentes y obtené datos de contacto, patrimoniales y comerciales actualizados de forma masiva y 100% autogestionable.
               </p>
-              <div className="d-flex flex-wrap gap-3 mt-4">
-                <a href="#contacto" className="about-btn-primary">Solicitar información</a>
-                <a href="#que-es" className="about-btn-outline">¿Qué es InfoBoost?</a>
+              <div className="d-flex flex-wrap gap-3 mt-4 about-buttons">
+                <a href="#que-es" className="about-btn-primary">¿Qué es InfoBoost?</a>
+                <a href="#contacto" className="about-btn-outline">Solicitar información</a>
               </div>
             </div>
             <div className="col-lg-5 d-none d-lg-block">
@@ -217,10 +217,9 @@ export default function InfoboostPage() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <div className="text-center mb-5">
-                <span className="about-label">CONTACTO</span>
+              <div className="text-center mb-3">
                 <h2 className="about-title">Contáctanos</h2>
-                <p className="about-text">Completá el formulario y te responderemos a la brevedad</p>
+                <span className="about-label" style={{ color: '#b71c1c' }}>Completá el formulario y te responderemos a la brevedad</span>
               </div>
               {sent ? (
                 <div className="text-center" style={{ padding: '3rem 0' }}>

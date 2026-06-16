@@ -9,7 +9,12 @@ async function fetchApi(url) {
 export async function searchPeople({ criterio, provincia = '', municipio = '', ciudad = '' }) {
   const params = new URLSearchParams({ criterio, provincia, municipio, ciudad })
 
-  const primary = await fetchApi(`/admin/api/buscar-basic.php?criterio=${encodeURIComponent(criterio)}&${params}`).catch(() => null)
+  let primary
+  try {
+    primary = await fetchApi(`/admin/api/buscar-basic.php?${params}`)
+  } catch (err) {
+    console.error('[searchApi] Error en fetch:', err)
+  }
 
   if (primary && primary.success && primary.results && primary.results.length > 0) {
     return primary
