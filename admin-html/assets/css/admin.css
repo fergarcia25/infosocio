@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.sidebar-overlay.show {
+  display: block;
+}
+
+.sidebar {
+  width: 250px;
+  background: #ffffff;
+  padding: 0.25rem 1rem;
+  color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar .sidebar-header {
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.sidebar .sidebar-header img {
+  max-height: 90px;
+}
+
+.sidebar .nav-link {
+  color: #555;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 2px;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  color: #c62828;
+  background: rgba(198, 40, 40, 0.08);
+}
+
+.sidebar .nav-link i {
+  width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.main-content {
+  margin-left: 250px;
+  flex: 1;
+  padding: 1.5rem;
+  transition: margin-left 0.3s ease;
+  min-width: 0;
+}
+
+.admin-header {
+  background: #fff;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    transform: translateX(0) !important;
+  }
+  .sidebar-overlay {
+    display: none !important;
+  }
+  .sidebar-toggler {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  .sidebar-overlay.show {
+    display: block;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+.stat-card {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #b71c1c, #e57373);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.badge-estado {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+}
+
+.table-actions {
+  white-space: nowrap;
+}
+
+.table-actions .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.table-sm th {
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.table-sm td {
+  font-size: 0.75rem;
+}
+
+@media print {
+  .btn { display: none !important; }
+  .bg-light { background: white !important; }
+  .min-vh-100 { min-height: auto !important; }
+  body { background: white !important; }
+}
+
+.filter-active-badge {
+  font-size: 0.75rem;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.modal-fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+.modal-fullscreen-content {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.report-container h1,
+.report-container h2,
+.report-container h3,
+.report-container h4,
+.report-container h5,
+.report-container h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+}
+
+.report-container .table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+.report-container .table th,
+.report-container .table td {
+  padding: 6px 10px !important;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.report-container .table tr:last-child td,
+.report-container .table tr:last-child th {
+  border-bottom: none;
+}
+
+.scoring-svg text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

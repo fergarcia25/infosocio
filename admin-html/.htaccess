@@ -1,0 +1,16 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # API routes passthrough
+    RewriteRule ^api/ - [L]
+
+    # Servir archivos existentes
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule . - [L]
+
+    # SPA fallback → admin index.php
+    RewriteRule ^(.*)$ index.php [L]
+</IfModule>
