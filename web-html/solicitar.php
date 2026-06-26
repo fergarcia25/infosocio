@@ -1,4 +1,21 @@
-<?php include 'include/header.php'; ?>
+<?php
+$persona = [
+    'nombre' => $_GET['nombre'] ?? 'Apellido, Nombre',
+    'cdu' => $_GET['cdu'] ?? '20-12345678-9',
+    'edad' => $_GET['edad'] ?? '35',
+    'sexo' => $_GET['sexo'] ?? 'M',
+    'provincia' => $_GET['provincia'] ?? 'Córdoba',
+    'ciudad' => $_GET['ciudad'] ?? 'Córdoba',
+    'foto' => $_GET['foto'] ?? '',
+];
+
+$nameParts = explode(',', $persona['nombre']);
+$lastName = trim($nameParts[0] ?? $persona['nombre']);
+$firstName = trim($nameParts[1] ?? '');
+$sexoLabel = $persona['sexo'] === 'M' ? 'Masculino' : ($persona['sexo'] === 'F' ? 'Femenino' : '-');
+
+include 'include/header.php';
+?>
 
 <div class="bg-light py-5" style="background-color: #f2f2f2; min-height: 100vh; margin-top: 80px;">
   <div class="container">
@@ -17,37 +34,37 @@
 
     <div class="row g-4 my-3">
 
-      <!-- Persona card (static example) -->
+      <!-- Persona card (dynamic) -->
       <div class="col-lg-4 col-sm-12 d-flex">
         <div class="rounded-3 p-4 flex-fill" style="background: #0a0a1a; background-image: radial-gradient(ellipse 700px 400px at 20% 50%, rgba(183,28,28,0.12), transparent), radial-gradient(ellipse 500px 400px at 80% 30%, rgba(255,111,0,0.06), transparent);">
           <div class="mb-3 pb-2" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
             <h3 class="fw-bold mb-0" style="color: #fff; font-size: 1.8rem;">
-              APELLIDO
+              <?php echo htmlspecialchars($lastName ?: ''); ?>
             </h3>
             <h5 class="fw-bold mb-0 pb-2" style="color: #b71c1c; font-size: 1.3rem;">
-              Nombre
+              <?php echo htmlspecialchars($firstName ?: ''); ?>
             </h5>
           </div>
           <div>
             <div class="mb-2">
               <span class="small d-block" style="color: rgba(255,255,255,0.5);">CDU / CUIL</span>
-              <p class="fw-bold fs-5" style="color: #fff;">20-12345678-9</p>
+              <p class="fw-bold fs-5" style="color: #fff;"><?php echo htmlspecialchars($persona['cdu']); ?></p>
             </div>
             <div class="mb-2">
               <span class="small d-block" style="color: rgba(255,255,255,0.5);">Sexo</span>
-              <p class="fw-bold fs-5" style="color: #fff;">Masculino</p>
+              <p class="fw-bold fs-5" style="color: #fff;"><?php echo $sexoLabel; ?></p>
             </div>
             <div class="mb-2">
               <span class="small d-block" style="color: rgba(255,255,255,0.5);">Edad</span>
-              <p class="fw-bold fs-5" style="color: #fff;">35 años</p>
+              <p class="fw-bold fs-5" style="color: #fff;"><?php echo !empty($persona['edad']) ? htmlspecialchars($persona['edad']) . ' años' : '-'; ?></p>
             </div>
             <div class="mb-2">
               <span class="small d-block" style="color: rgba(255,255,255,0.5);">Provincia</span>
-              <p class="fw-bold fs-5" style="color: #fff;">Córdoba</p>
+              <p class="fw-bold fs-5" style="color: #fff;"><?php echo htmlspecialchars($persona['provincia']); ?></p>
             </div>
             <div class="mb-0">
               <span class="small d-block" style="color: rgba(255,255,255,0.5);">Ciudad</span>
-              <p class="fw-bold fs-5" style="color: #fff;">Córdoba</p>
+              <p class="fw-bold fs-5" style="color: #fff;"><?php echo htmlspecialchars($persona['ciudad']); ?></p>
             </div>
           </div>
         </div>

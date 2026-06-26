@@ -1,7 +1,7 @@
 <?php
-  $nombreCompleto = ($result['apellidos'] ?? '') . ', ' . ($result['nombres'] ?? '');
+  $nombreCompleto = ($result['nombres'] ?? '') . ', ' . ($result['apellidos'] ?? '');
   $nameParts = explode(',', $nombreCompleto);
-  $firstName = trim($nameParts[0] ?? $nombreCompleto);
+  $firstName = trim($nameParts[0] ?? '') ?: $nombreCompleto;
   $lastName = trim($nameParts[1] ?? '');
   $sexoLabel = ($result['sexo'] ?? '') === 'M' ? 'Masculino' : (($result['sexo'] ?? '') === 'F' ? 'Femenino' : '-');
 ?>
@@ -32,7 +32,7 @@
         <div class="col-6">
           <div style="background-color: rgb(249 249 249); border-radius: 6px; padding: 6px 12px;">
             <div class="text-muted" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px;">Edad</div>
-            <div class="fw-bold"><?php echo isset($result['edad']) ? $result['edad'] . ' años' : '-'; ?></div>
+            <div class="fw-bold"><?php echo !empty($result['edad']) ? $result['edad'] . ' años' : '-'; ?></div>
           </div>
         </div>
         <div class="col-6">
@@ -56,8 +56,13 @@
       </div>
     </div>
 
+    <?php
+      $solicitarNombre = urlencode(trim(($result['apellidos'] ?? '') . ', ' . ($result['nombres'] ?? ''), ', '));
+      $solicitarCdu = urlencode($result['cuit'] ?? $result['nrodni'] ?? '');
+      $solicitarParams = "nombre=$solicitarNombre&cdu=$solicitarCdu&edad=" . urlencode($result['edad'] ?? '') . "&sexo=" . urlencode($result['sexo'] ?? '') . "&provincia=" . urlencode($result['provincia'] ?? '') . "&ciudad=" . urlencode($result['ciudad'] ?? '') . "&foto=" . urlencode($result['foto'] ?? '');
+    ?>
     <div class="text-end mt-3">
-      <a href="solicitar?userId=<?php echo urlencode($result['id'] ?? ''); ?>" class="about-btn-primary">
+      <a href="solicitar?<?php echo $solicitarParams; ?>" class="about-btn-primary">
         <i class="bi bi-file-earmark-text me-1"></i>
         Solicitar Informe
       </a>

@@ -23,19 +23,18 @@ Create plain PHP + HTML5 + CSS3 pages in `/web-html/` that mirror the **exact te
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 ```
 
-## AGENTS-INCLUDE files
+## AGENTS-INCLUDE files & services
 
-There are 6 `AGENTS-DOC/AGENTS-INCLUDE-*.md` instruction files for reusable PHP components:
-
-| Component (JSX) | Instructions file | PHP output | Description |
+| Component/Service | Instructions file | PHP output | Description |
 |---|---|---|---|
 | `Header.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-Header.md` | `include/header.php` | DOCTYPE, head (CDN), nav, offcanvas mobile menu, scroll detection (vanilla JS) |
 | `Footer.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-Footer.md` | `include/footer.php` | Footer links, contact info, copyright, closing body/html tags |
 | `SearchBar.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-SearchBar.md` | `include/search-bar.php` | Search input + submit button, accepts `$large` bool for expanded variant |
-| `FilterSidebar.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-FilterSidebar.md` | `include/filter-sidebar.php` | 4 filter selects (Sexo, Edad, Provincia, Ciudad) with sample counts |
+| `FilterSidebar.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-FilterSidebar.md` | `include/filter-sidebar.php` | 4 filter selects (Sexo, Edad, Provincia, Ciudad) with dynamic counts and auto-submit |
 | `Pagination.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-Pagination.md` | `include/pagination.php` | Prev/next + page number buttons via PHP foreach loop |
-| `ResultCard.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-ResultCard.md` | `include/result-card.php` | Persona data card (DNI, CUIT, edad, sexo, provincia, ciudad) with "Solicitar Informe" link |
+| `ResultCard.jsx` | `AGENTS-DOC/AGENTS-INCLUDE-ResultCard.md` | `include/result-card.php` | Persona data card with "Solicitar Informe" link (passes persona via URL params) |
 | `ServiceCard.jsx` | *(skip — unused, imported nowhere)* | *(none)* | Dead code; not referenced in any page |
+| `searchApi.js` | `AGENTS-DOC/AGENTS-SERVICES-SearchApi.md` | `include/search-api.php` | cURL wrapper for `/admin/api/buscar-basic.php` with `searchPeople()` function |
 
 ## Directory Structure
 ```
@@ -48,6 +47,7 @@ There are 6 `AGENTS-DOC/AGENTS-INCLUDE-*.md` instruction files for reusable PHP 
 │   ├── AGENTS-INCLUDE-SearchBar.md  # Search bar form include
 │   ├── AGENTS-INCLUDE-FilterSidebar.md # Filter sidebar selects include
 │   ├── AGENTS-INCLUDE-Pagination.md # Pagination buttons include
+│   ├── AGENTS-SERVICES-SearchApi.md # PHP search service (cURL -> API)
 │   ├── AGENTS-INCLUDE-ResultCard.md # Result card include
 │   ├── AGENTS-PAGE-HomePage.md      # HTML content for index.php
 │   ├── AGENTS-PAGE-InfotargetPage.md # HTML content for infotarget.php
@@ -66,7 +66,8 @@ There are 6 `AGENTS-DOC/AGENTS-INCLUDE-*.md` instruction files for reusable PHP 
 │   ├── search-bar.php
 │   ├── filter-sidebar.php
 │   ├── pagination.php
-│   └── result-card.php
+│   ├── result-card.php
+│   └── search-api.php
 ├── js/scripts.js
 ├── index.php          # HomePage
 ├── infotarget.php     # AboutPage (InfoTarget)
@@ -87,7 +88,7 @@ There are 6 `AGENTS-DOC/AGENTS-INCLUDE-*.md` instruction files for reusable PHP 
 | `AboutPage.jsx` | `infotarget.php` | `AGENTS-DOC/AGENTS-PAGE-InfotargetPage.md` | `infotarget` | Hero + "What is" + 3-step transform + 3 features + 4 benefits + 3 steps + CTA + contact form |
 | `ServicesPage.jsx` | `servicios.php` | `AGENTS-DOC/AGENTS-PAGE-ServicesPage.md` | `servicios` | Hero + 8 plan cards with badges |
 | `InfoboostPage.jsx` | `infoboost.php` | `AGENTS-DOC/AGENTS-PAGE-InfoboostPage.md` | `infoboost` | Hero + "What is" (3 steps) + 4 info cards + CTA + contact form |
-| `ResultsPage.jsx` | `resultados.php` | `AGENTS-DOC/AGENTS-PAGE-ResultsPage.md` | `resultados?q=...` | Header + filters + 2 static results + pagination |
+| `ResultsPage.jsx` | `resultados.php` | `AGENTS-DOC/AGENTS-PAGE-ResultsPage.md` | `resultados?q=...` | Dynamic results via search API + filter (sexo/edad) + pagination |
 | `SolicitarPage.jsx` | `solicitar.php` | `AGENTS-DOC/AGENTS-PAGE-SolicitarPage.md` | `solicitar` | Persona card + email fields + static price |
 | `TyCPage.jsx` | `terminos.php` | `AGENTS-DOC/AGENTS-PAGE-TyCPage.md` | `terminos-y-condiciones` | 12 sections of legal text |
 | `PrivacidadPage.jsx` | `privacidad.php` | `AGENTS-DOC/AGENTS-PAGE-PrivacidadPage.md` | `politicas-de-privacidad` | Terms 1-7 + Privacy 1-7 legal text |
@@ -202,8 +203,11 @@ Classes to style: `about-hero`, `about-hero-bg`, `about-hero-title`, `about-hero
 - [ ] Info cards: 4 (Datos Particulares, Vínculos, Bienes Personales, Morosidad)
 - [ ] CTA + contact form
 
-### resultados.php — 215 lines
-- [ ] "RESULTADOS DE BÚSQUEDA", filters, 2 static results, pagination, empty/no-query states
+### resultados.php — dynamic
+- [x] Dynamic results via search API (cURL to `/admin/api/buscar-basic.php`)
+- [x] Filter (sexo/edad) with auto-submit on select change
+- [x] Pagination (10 per page)
+- [x] States: no-query, loading (spinner), error (alert), no-results, results
 
 ### solicitar.php — 243 lines
 - [ ] Persona card, email/confirm email/WhatsApp, static "$ 15.200", "Pagar con MercadoPago" button
@@ -223,13 +227,14 @@ Classes to style: `about-hero`, `about-hero-bg`, `about-hero-title`, `about-hero
 3. `include/footer.php` (use `AGENTS-DOC/AGENTS-INCLUDE-Footer.md`)
 4. `include/search-bar.php` (use `AGENTS-DOC/AGENTS-INCLUDE-SearchBar.md`)
 5. `include/filter-sidebar.php` (use `AGENTS-DOC/AGENTS-INCLUDE-FilterSidebar.md`)
-6. `include/pagination.php` (use `AGENTS-DOC/AGENTS-INCLUDE-Pagination.md`)
-7. `include/result-card.php` (use `AGENTS-DOC/AGENTS-INCLUDE-ResultCard.md`)
-8. `js/scripts.js`
-9. Static content: `terminos.php` (use `AGENTS-DOC/AGENTS-PAGE-TyCPage.md`), `privacidad.php` (use `AGENTS-DOC/AGENTS-PAGE-PrivacidadPage.md`)
-10. Form pages: `cancelacion.php` (use `AGENTS-DOC/AGENTS-PAGE-CancelacionPage.md`), `solicitar.php` (use `AGENTS-DOC/AGENTS-PAGE-SolicitarPage.md`)
-11. Content pages: `servicios.php` (use `AGENTS-DOC/AGENTS-PAGE-ServicesPage.md`), `infoboost.php` (use `AGENTS-DOC/AGENTS-PAGE-InfoboostPage.md`), `infotarget.php` (use `AGENTS-DOC/AGENTS-PAGE-InfotargetPage.md`), `resultados.php` (use `AGENTS-DOC/AGENTS-PAGE-ResultsPage.md`)
-12. `index.php` (most complex — use `AGENTS-DOC/AGENTS-PAGE-HomePage.md`)
+6. `include/search-api.php` (use `AGENTS-DOC/AGENTS-SERVICES-SearchApi.md`)
+7. `include/pagination.php` (use `AGENTS-DOC/AGENTS-INCLUDE-Pagination.md`)
+8. `include/result-card.php` (use `AGENTS-DOC/AGENTS-INCLUDE-ResultCard.md`)
+9. `js/scripts.js`
+10. Static content: `terminos.php` (use `AGENTS-DOC/AGENTS-PAGE-TyCPage.md`), `privacidad.php` (use `AGENTS-DOC/AGENTS-PAGE-PrivacidadPage.md`)
+11. Form pages: `cancelacion.php` (use `AGENTS-DOC/AGENTS-PAGE-CancelacionPage.md`), `solicitar.php` (use `AGENTS-DOC/AGENTS-PAGE-SolicitarPage.md`)
+12. Content pages: `servicios.php` (use `AGENTS-DOC/AGENTS-PAGE-ServicesPage.md`), `infoboost.php` (use `AGENTS-DOC/AGENTS-PAGE-InfoboostPage.md`), `infotarget.php` (use `AGENTS-DOC/AGENTS-PAGE-InfotargetPage.md`), `resultados.php` (use `AGENTS-DOC/AGENTS-PAGE-ResultsPage.md`)
+13. `index.php` (most complex — use `AGENTS-DOC/AGENTS-PAGE-HomePage.md`)
 
 ## Verification
 - Every Spanish string matches the JSX file exactly

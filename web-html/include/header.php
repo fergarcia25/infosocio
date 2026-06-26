@@ -18,6 +18,7 @@ function navActive($href) {
   <title>InfoSocio — Informes Personalizados</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -55,8 +56,8 @@ function navActive($href) {
         </li>
       </ul>
       <div class="nav-offcanvas-search">
-        <form class="d-flex" style="background: #f1f1f1; border-radius: 16px; padding: 0;">
-          <input type="text" class="form-control border-0" placeholder="Buscar.." style="background: transparent; padding: 6px 10px; border-top-left-radius: 16px; border-bottom-left-radius: 16px;" />
+        <form class="d-flex search-container" style="background: #f1f1f1; border-radius: 16px; padding: 0;">
+          <input type="text" name="criterio" class="form-control border-0" placeholder="Buscar.." style="background: transparent; padding: 6px 10px; border-top-left-radius: 16px; border-bottom-left-radius: 16px;" />
           <button class="btn btn-dark fw-bold" type="submit" style="border-radius: 16px; padding: 0.3rem 1rem;">Buscar</button>
         </form>
       </div>
@@ -76,8 +77,8 @@ function navActive($href) {
             <a class="nav-link<?php echo navActive('infotarget'); ?>" href="infotarget">InfoTarget</a>
           </li>
         </ul>
-        <form class="d-flex" style="background: #f1f1f1; border-radius: 16px; padding: 0;">
-          <input type="text" class="form-control border-0" placeholder="Buscar.." style="background: transparent; padding: 6px 10px; border-top-left-radius: 16px; border-bottom-left-radius: 16px;" />
+        <form class="d-flex search-container" style="background: #f1f1f1; border-radius: 16px; padding: 0;">
+          <input type="text" name="criterio" class="form-control border-0" placeholder="Buscar.." style="background: transparent; padding: 6px 10px; border-top-left-radius: 16px; border-bottom-left-radius: 16px;" />
           <button class="btn btn-dark fw-bold" type="submit" style="border-radius: 16px; padding: 0.3rem 1rem;">Buscar</button>
         </form>
       </div>
