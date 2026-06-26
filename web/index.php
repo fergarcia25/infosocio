@@ -3,7 +3,11 @@ $uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($uri, PHP_URL_PATH);
 
 $base = '/web';
-$webPath = substr($path, strlen($base));
+if (strpos($path, $base) === 0) {
+    $webPath = substr($path, strlen($base));
+} else {
+    $webPath = $path;
+}
 
 if ($webPath === '' || $webPath === '/') {
     readfile(__DIR__ . '/dist/index.html');

@@ -1,5 +1,5 @@
 DirectoryIndex index.php index.html
-ErrorDocument 404 /index.php
+ErrorDocument 404 /web/index.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -7,15 +7,15 @@ ErrorDocument 404 /index.php
     # Si la ruta empieza con /admin, dejar que admin/.htaccess maneje
     RewriteRule ^admin(/|$) - [L]
 
-    # Servir assets del build de web desde /dist/
+    # Servir assets del build de web desde /web/dist/
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^assets/(.*)$ dist/assets/$1 [L]
+    RewriteRule ^assets/(.*)$ web/dist/assets/$1 [L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^favicon\.svg$ dist/favicon.svg [L]
+    RewriteRule ^favicon\.svg$ web/dist/favicon.svg [L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^icons\.svg$ dist/icons.svg [L]
+    RewriteRule ^icons\.svg$ web/dist/icons.svg [L]
 
     # Servir archivos existentes directamente
     RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -23,5 +23,5 @@ ErrorDocument 404 /index.php
     RewriteRule . - [L]
 
     # Todo lo demás → web SPA
-    RewriteRule ^(.*)$ index.php [L]
+    RewriteRule ^(.*)$ web/index.php [L]
 </IfModule>

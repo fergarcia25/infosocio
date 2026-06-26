@@ -1,0 +1,25 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Serve existing files/directories directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route clean URLs to PHP files
+    RewriteRule ^infoboost$ infoboost.php [L,QSA]
+    RewriteRule ^infotarget$ infotarget.php [L,QSA]
+    RewriteRule ^resultados$ resultados.php [L,QSA]
+    RewriteRule ^solicitar$ solicitar.php [L,QSA]
+    RewriteRule ^terminos-y-condiciones$ terminos.php [L,QSA]
+    RewriteRule ^politicas-de-privacidad$ privacidad.php [L,QSA]
+    RewriteRule ^cancelacion-datos$ cancelacion.php [L,QSA]
+    RewriteRule ^servicios$ servicios.php [L,QSA]
+
+    # Catch-all: send to index.php (SPA fallback)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [L]
+</IfModule>
