@@ -1,12 +1,12 @@
 <?php
 // Database configuration
-
+/*
 // ENTORNO: STAGING Hostinger
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'infosocio');
-/*
+
 // ENTORNO: STAGING Hostinger
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'u653101286_infosocio');
@@ -20,12 +20,12 @@ DB: infosoci_db_infosocio
 DB user: infosoci_db_infosocio
 DB user password : wtx0=SzAPMN+4v(S
 ---
-
+*/
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'infosoci_db_infosocio');
 define('DB_USER', 'infosoci_db_infosocio');
 define('DB_PASS', 'wtx0=SzAPMN+4v(S');
-*/
+
 function getDB() {
     static $pdo = null;
     if ($pdo === null) {
